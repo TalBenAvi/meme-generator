@@ -94,3 +94,10 @@ function showFocus() {
     gCtx.strokeStyle = 'black'
     gCtx.stroke()
 }
+function toggleMenu() {
+    document.querySelector('.nav-bar').classList.toggle('show');
+    document.querySelector('.bg-screen').classList.toggle('show');
+}
+function toggleBtn() {
+    document.querySelector('#nav-icon').classList.toggle('open');
+}
