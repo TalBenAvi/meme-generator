@@ -232,7 +232,16 @@ a {
     -webkit-box-shadow: inset 0px -4px 0px 0px #0c1ae7;
     box-shadow: inset 0px -4px 0px 0px #0c1ae7;
 }
-
+.adjust-container {
+    background-color: #060af5;
+    justify-content: center;
+    border-radius: 0.7em;
+    grid-template-columns: repeat(5, 55px);
+    grid-row-gap: 12px;
+    grid-column-gap: 25px;
+    justify-items: center;
+    padding: 15px;
+}
 /* Helpers */
 
 img {
