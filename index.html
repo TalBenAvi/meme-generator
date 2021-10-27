@@ -27,7 +27,7 @@
             <div data-trans="lang" class="link"><a href="#">עברית</a></div>
         </nav>
     </header>
-    <div class="gallery-view">
+    <div class="gallery-page hide">
         <div class="gallery-nav-bar flex space-between">
             <div class="search-input-container flex space-between">
                 <input data-trans="search" type="text" class="search-input" placeholder="search">
@@ -43,6 +43,23 @@
         <div class="gallery-container">
             <div class="gallery grid"></div>
 
+        </div>
+    </div>
+
+    <div class="edit-page">
+        <div class="canvas-container">
+            <canvas id="edit-canvas" height="100" width="100"></canvas>
+        </div>
+        <div class="editor-container flex space-between column">
+            <div class="add-text-container editor-layout flex column">
+                <input type="text" class="add-text-input" data-trans="add-text-here" placeholder="Enter Text Here">
+                <div class="tools-btn-container flex space-between"></div>
+                <button class="tools-btns change-sentence-btn" ><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+                <button class=""><img src="icons/trash.png"></button>
+                <button class=""><img src="icons/add.png"></button>
+                <button class=""><img src="icons/up-arrow.png"></button>
+                <button class=""><img src="icons/down-arrow.png"></button>
+            </div>
         </div>
     </div>
     <script src="js/i18n-service.js"></script>
