@@ -1,16 +1,16 @@
 'use strict'
 var gImgs;
 
-var gMeme={
-    imgId:0,
-    lineIdx:0,
-    textLines:[]
+var gMeme = {
+    imgId: 0,
+    lineIdx: 0,
+    textLines: []
 }
 var gSavedMemes;
 
-function loadImgs(){
+function loadImgs() {
     gImgs = loadFromStorage('ImgsDB');
-    if(!gImgs) gImgs = [
+    if (!gImgs) gImgs = [
         { id: 1, url: 'meme-imgs (square)/1.jpg', keywords: ['ugly', 'trump', 'funny', 'president'] },
         { id: 2, url: 'meme-imgs (square)/2.jpg', keywords: ['happy', 'animal', 'love'] },
         { id: 3, url: 'meme-imgs (square)/3.jpg', keywords: ['kids', 'animal', 'cute', 'sleep'] },
@@ -31,4 +31,33 @@ function loadImgs(){
         { id: 18, url: 'meme-imgs (square)/18.jpg', keywords: ['happy', 'kids', 'toys'] },
     ]
     return gImgs;
+}
+function createLine(txt, font = 'impact', align = 'center', color = 'white', width, posX, posY) {
+    var line = {
+        txt,
+        size: 40,
+        font: 'impact',
+        align,
+        color,
+        width,
+        posX,
+        posY,
+        isGrab: false
+    }
+    gMeme.textLines.push(line);
+    gMeme.lineIdx = gMeme.textLines.length - 1;
+}
+function setMemeImg(imgId) {
+    var img = gImgs.find((img) => img.id === imgId);
+    gMeme.imgId = img.id;
+    return img.url;
+}
+function createNewImg(img) {
+    var newImg = {
+        id: gImgs.length + 1,
+        url: img.src,
+        keywords: ['']
+    }
+    gImgs.push(newImg);
+    saveToStorage('ImgsDB', gImgs)
 }
