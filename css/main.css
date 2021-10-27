@@ -180,9 +180,58 @@ a {
     background-color: white;
     border-radius: 20px;
 }
-#edit-canvas{
+
+#edit-canvas {
     border-radius: 20px;
 }
+
+.editor-container {
+    padding: 20px;
+    align-items: center;
+}
+
+.text-container {
+    width: 80%;
+}
+.tools-btns {
+    height: 50px;
+    width: 50px;
+    border-radius: 0.8em;
+    border: none;
+}
+.change-sentence-btn {
+    transition: background-color .3s;
+    background-color: #ff6f43;
+    -webkit-box-shadow: inset 0px -4px 0px 0px #ff6f43;
+    box-shadow: inset 0px -4px 0px 0px #ff6f43;
+}
+.trash-btn {
+
+    transition: background-color .3s;
+    background-color: #ff6f43;
+    -webkit-box-shadow: inset 0px -4px 0px 0px #ff6f43;
+    box-shadow: inset 0px -4px 0px 0px #ff6f43;
+}
+.add-btn {
+
+    transition: background-color .3s;
+    background-color: #ff6f43;
+    -webkit-box-shadow: inset 0px -4px 0px 0px #ff6f43;
+    box-shadow: inset 0px -4px 0px 0px #ff6f43;
+}
+.up-btn {
+    transition: background-color .3s;
+    background-color: #ff6f43;
+    -webkit-box-shadow: inset 0px -4px 0px 0px #ff6f43;
+    box-shadow: inset 0px -4px 0px 0px #ff6f43;
+}
+.down-btn {
+    transition: background-color .3s;
+    background-color: #ff6f43;
+    -webkit-box-shadow: inset 0px -4px 0px 0px #ff6f43;
+    box-shadow: inset 0px -4px 0px 0px #ff6f43;
+}
+
 /* Helpers */
 
 img {
@@ -200,7 +249,9 @@ input[type="file"] {
 .column {
     flex-direction: column;
 }
-
+.row {
+    flex-direction: row;
+}
 .space-between {
     justify-content: space-between;
 }
