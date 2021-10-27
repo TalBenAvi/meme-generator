@@ -138,7 +138,7 @@ padding: 10px;
     grid-column-gap: 29px;
     height: 91%;
     margin: auto;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     padding-top: 15px;
 }
 .gallery img {
