@@ -9,47 +9,35 @@
     <title>Meme Generetor</title>
 </head>
 
-<body onload="onInit()" class="overflow-hidden">
-    <div class="bg-screen" onclick="toggleBtn(),toggleMenu()"></div>
+<body onload="onInit()">
+    <div class="bg-screen"></div>
     <header class="main-header flex space-between">
-        <div class="main-header-logo">MEMEoTRON</div>
-        <div class="menu-btn-container">
-            <div id="nav-icon1" onclick="toggleBtn() , toggleMenu()">
+        <div class="main-header-logo">MemeMaker</div>
+        <div class="menu-btns-container">
+            <div>
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </div>
         <nav class="nav-bar flex">
-            <div data-trans="gallery" class="link" onclick="showGallery()"><a href="#">Gallery</a></div>
-            <div data-trans="memes" class="link memes-link" onclick="showMemes()"><a href="#">Memes</a></div>
-            <div data-trans="lang" class="link" onclick="onSetLang()"><a href="#">עברית</a></div>
+            <div data-trans="gallery"><a href="#">Gallery</a></div>
+            <div data-trans="memes"><a href="#">Memes</a></div>
+            <div data-trans="lang"><a href="#">עברית</a></div>
         </nav>
     </header>
 
     <div class="gallery-view">
         <div class="gallery-nav-bar flex space-between">
             <div class="search-input-container flex space-between">
-                <input data-trans="search" type="text" class="search-input" placeholder="search"
-                    oninput="onSetFilter(this.value)">
-                <button class="search-btn"><object data="ICONS/search.svg" class="search-icon"
-                        fill="green"></object></button>
+                <input data-trans="search" type="text" class="search-input" placeholder="search">
+                <button class="search-btn"><object class="search-icon" fill="green"></object></button>
             </div>
             <label class="file-input-container flex">
                 <span data-trans="import-image">Import Image</span>
-                <img src="ICONS/import.png" alt="">
-                <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
+                <img src="" alt="">
+                <input type="file" class="file-input btn" name="image"/>
             </label>
-            <div class="filter-options flex space-evenly">
-                <div class="filter-opt" data-trans="funny" onclick="onSetFilter('funny') , biggerFont(this)">Funny</div>
-                <div class="filter-opt" data-trans="animal" onclick="onSetFilter('animal') , biggerFont(this)">Animal
-                </div>
-                <div class="filter-opt" data-trans="bed" onclick="onSetFilter('bed') , biggerFont(this)">Bed</div>
-                <div class="filter-opt" data-trans="kids" onclick="onSetFilter('kids') , biggerFont(this)">kids</div>
-                <div class="filter-opt" data-trans="happy" onclick="onSetFilter('happy') , biggerFont(this)">happy</div>
-                <div class="filter-opt" data-trans="president" onclick="onSetFilter('president') , biggerFont(this)">
-                    president</div>
-            </div>
         </div>
         <div class="img-gallery-container">
             <div class="img-gallery grid"></div>
@@ -58,78 +46,44 @@
 
     <div class="editor-view hide">
         <div class="canvas-container">
-            <canvas id="my-canvas" height="100" width="100" onclick="chooseText(event)"></canvas>
+            <canvas id="my-canvas" height="100" width="100" onclick=""></canvas>
         </div>
-        <div class="edit-tools-container flex space-between column">
-            <div class="add-text-container editor-layout flex column">
-                <input type="text" class="add-text-input" data-trans="add-text-here" oninput="updateText()"
-                    placeholder="Add Text Here">
-                <div class="tools-btn-container flex space-between">
-                    <button class="tools-btn switch-focus-btn" title="Try Using Tab key" onclick="onSwitchText()"><img
-                            src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
-                    <button class="tools-btn add-text-btn" title="Try Using Enter key" onclick="onAddText()"><img
-                            src="ICONS/add.png" alt=""></button>
-                    <button class="tools-btn delete-text-btn" title="Try Using Delete key" onclick="onDeleteText()"><img
-                            src="ICONS/trash.png" alt=""></button>
+        <div >
+            <div >
+                <input type="text" data-trans="add-text-here" placeholder="Add Text Here">
+                <div >
+                    <button ><img src="" alt=""></button>
+                    <button ><img src="" alt=""></button>
+                    <button ><img src="" alt=""></button>
                 </div>
             </div>
-            <div class="adjust-tools-container editor-layout grid">
-                <button class="adjust-btn bigger-font" onclick="onFontChange(1)"><img
-                        src="ICONS/increase font - icon.png" alt=""></button>
-                <button class="adjust-btn smaller-font" onclick="onFontChange(-1)"><img
-                        src="ICONS/decrease font - icon.png" alt=""></button>
-                <button class="adjust-btn text-left" onclick="onAlignText('right')"><img src="ICONS/align-to-left.png"
-                        alt=""></button>
-                <button class="adjust-btn text-center" onclick="onAlignText('center')"><img
-                        src="ICONS/center-text-alignment.png" alt=""></button>
-                <button class="adjust-btn text-right" onclick="onAlignText('left')"><img src="ICONS/align-to-right.png"
-                        alt=""></button>
-                <button class="adjust-btn text-up" title="try using arrow-down key" onclick="onTextMove(1)"><img
-                        src="ICONS/down-arrow.png" alt=""></button>
-                <button class="adjust-btn text-down" title="try using arrow-up key" onclick="onTextMove(-1)"><img
-                        src="ICONS/up-arrow.png" alt=""></button>
-                <select name="font-select" id="" class="font-selector adjust-btn"
-                    onchange="onFontFamilyChange(this.value)">
-                    <option>impact</option>
-                    <option>Gill Sans</option>
-                    <option>Courier New</option>
-                </select>
-                <button class="adjust-btn save-btn" onclick="onSaveMeme()"><img src="ICONS/save-icon.svg"
-                        alt=""></button>
-                <button class="adjust-btn text-color"><label class="color-label">
-                        <img src="ICONS/paint-board-and-brush.png" alt="">
-                        <input type="color" class="color-input" oninput="onColorChange(this.value)">
+            <div>
+                <button ><img src="" alt=""></button>
+                <button ><img src="" alt=""></button>
+                <button ><img src="" alt=""></button>
+                <button ><img src="" alt=""></button>
+                <button ><img src="" alt=""></button>
+                <button ><img src="" alt=""></button>
+                <button ><img src="" alt=""></button>
+                <button ><img src="" alt=""></button>
+                <button ><label> <img src="" alt="">
+                        <input type="color" class="color-input">
                     </label>
                 </button>
-                <button class="adjust-btn" onclick="toggleModal()"><img src="ICONS/help-sing.png" alt=""></button>
+                <button ><img src="" alt=""></button>
             </div>
             <div class="publish-btns editor-layout flex space-between">
-                <form action="" onsubmit="uploadImg(this, event)" class="publish-form flex space-evenly">
-                    <input name="img" id="imgData" type="hidden" />
+                <form action="" >
+                    <input name="img" id="imgData" type="hidden"/>
                     <button class="share-btn" data-trans="share">Share</button>
                     <button class="share-container" data-trans="share"></button>
                 </form>
                 <button class="download-btn">
-                    <a href="#" download="my-img.jpg" data-trans="download" class="download-link" onclick="onDownloadImg(this)">Download</a>
+                    <a href="#" download="my-img.jpg" data-trans="download" class="download-link">Download</a>
                 </button>
             </div>
         </div>
     </div>
-
-    <div class="help-modal hide">
-        <div class="x-btn" onclick="toggleModal()">X</div>
-        <h2>Try using KeyBoard!</h2>
-        <p>
-            Use Up and Down keys to move the text up and down.
-            <hr>
-            Use Tab key to switch focus between lines.
-            <hr>
-            Use Enter key to finish updating a line or to add a line.
-            <hr>
-            Use Delete key to delete the focused line.
-        </p>
-    </div>
-
     <div class="memes-view hide">
         <div class="img-gallery-container memes">
             <div class="memes-container">
