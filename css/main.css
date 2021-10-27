@@ -13,10 +13,110 @@ body {
     background-color: #22252C;
     text-align: center;
 }
+/* HEADER */
+
+.main-header {
+    background:linear-gradient(to left,#dde110,#30bbb4);
+    height: 80px;
+    border-radius: 20px;
+    align-items: center;
+}
+.main-header-logo {
+    margin-inline-start: 60px ;
+}
+.nav-bar {
+    margin-inline-end: 60px;
+}
 a {
     text-decoration: none;
     color: white;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.link a {
+    padding: 9px 21px;
+}
+.link {
+    padding: 10px 22px;
+    border-radius: 20px;
+    transition: background-color .5s;
+}
+.link:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.link:hover a {
+    color : #30BB73;
+}
+/* MAIN GALLERY */
+.search-input-container{
+    height: 60px;
+    flex-grow: 1;
+    background-color: #22252C;
+    border-radius: 3em;
+    margin: 15px;
+    padding: 0 30px;
+    align-items: center;
+    border : 2px solid #dde110;
+    flex-shrink: 10;
+    min-width: 200px;
+}
+.file-input-container{
+    align-items: center;
+    height: 60px;
+    width: fit-content;
+    margin: 15px;
+    background-color: #22252C;
+    border-radius: 3em;
+    border : 2px solid #dde110;
+    transition: background-color .3s;
+    font-size: 1.375rem;
+    line-height: 1em;
+    padding: 0 10px;
+}
+.file-input-container:hover{
+    cursor: pointer;
+    background-color:#383B42 ;
+}
+
+.file-input-container img {
+    display: none;
+    height: 35px;
+    width: 35px;
+}
+
+.search-input {
+    background-color: #22252C;
+    border: none;
+    font-size: 1rem;
+    color: white;
+    width: 100%;
+}
+
+.search-btn {
+    height: 50px;
+    width: 50px;
+    background-color: #22252C;
+    border:none;
+    align-items: center;
+    border-radius: 2em;
+    padding: 0 10px;
+    transition: background-color .3s;
+}
+
+.search-input:focus-visible {
+    outline: none;
+}
+
+.search-btn:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+.search-icon {
+    fill: green;
+    object-fit:contain;
 }
 /* Helpers */
 

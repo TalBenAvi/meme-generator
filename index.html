@@ -20,17 +20,24 @@
                 <span></span>
             </div>
         </div>
+
         <nav class="nav-bar flex">
-            <div data-trans="gallery"><a href="#">Gallery</a></div>
-            <div data-trans="memes"><a href="#"> Saved Memes</a></div>
-            <div data-trans="lang"><a href="#">עברית</a></div>
+            <div data-trans="gallery" class="link"><a href="#">Gallery</a></div>
+            <div data-trans="memes" class="link"><a href="#"> Saved Memes</a></div>
+            <div data-trans="lang" class="link"><a href="#">עברית</a></div>
         </nav>
     </header>
-    <script src="js/i18n-service.js"></script>
-    <script src="js/storage-service.js"></script>
-    <script src="js/upload-service.js"></script>
-    <script src="js/meme-service.js"></script>
-    <script src="js/main-controller.js"></script>
+    <div class="gallery-view">
+        <div class="gallery-nav-bar flex space-between">
+            <div class="search-input-container flex space-between">
+                <input data-trans="search" type="text" class="search-input" placeholder="search">
+                <button class="search-btn"><object data="icons/search-icon.png" class="search-icon" fill="green"></object></button>
+            </div>
+            <script src="js/i18n-service.js"></script>
+            <script src="js/storage-service.js"></script>
+            <script src="js/upload-service.js"></script>
+            <script src="js/meme-service.js"></script>
+            <script src="js/main-controller.js"></script>
 </body>
 
 </html>
