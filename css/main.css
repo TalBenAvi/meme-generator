@@ -117,7 +117,40 @@ a {
     color: white;
     width: 100%;
 }
-
+.gallery-view{
+background-color: #606b85;
+width: 95%;
+border-radius: 10px;
+margin: 20px auto;
+padding: 10px;
+}
+.galllery-container{
+    padding: 10px;
+    height: 100%;
+}
+.gallery {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 201px);
+    grid-template-rows: repeat(auto-fit, 176px);
+    grid-row-gap: 25px;
+    grid-column-gap: 29px;
+    height: 91%;
+    margin: auto;
+    overflow-y: scroll;
+    padding-top: 15px;
+}
+.gallery img {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: box-shadow .4s;
+}
+.gallery img:hover {
+    -webkit-box-shadow: 0px 0px 7px 10px #dde110;
+    box-shadow: 0px 0px 7px 10px #dde110;
+    cursor: pointer;
+}
 /* Helpers */
 
 input[type="file"]{
