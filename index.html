@@ -27,7 +27,7 @@
             <div data-trans="lang" class="link"><a href="#">עברית</a></div>
         </nav>
     </header>
-    <div class="gallery-page hide">
+    <div class="gallery-page">
         <div class="gallery-nav-bar flex space-between">
             <div class="search-input-container flex space-between">
                 <input data-trans="search" type="text" class="search-input" placeholder="search">
@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <div class="edit-page space-evenly">
+    <div class="edit-page space-evenly hide">
         <div class="canvas-container">
             <canvas id="edit-canvas" height="100" width="100"></canvas>
         </div>
@@ -64,17 +64,38 @@
 
             </div>
             <div class="adjust-container editor-layout grid">
-                <button class="adjust-btn bigger-font"><img src="icons/increase font - icon.png"></button>
-                <button class="adjust-btn smaller-font"><img src="icons/decrease font - icon.png"></button>
-                <button class="adjust-btn text-left"><img src="icons/align-to-left.png"></button>
-                <button class="adjust-btn text-center"><img src="icons/center-text-alignment.png"></button>
-                <button class="adjust-btn text-right"><img src="icons/align-to-right.png"></button>
-                <select name="font-select" class="font-selector adjust-btn"></select>
-                <button class="adjust-btn save-btn"><img src="icons/save.png"></button>
-                <button class="adjust-btn text-color"><label class="color-label"><img src="icons/paint-board-and-brush.png">
-                    <input type="color" class="color-input"></label>
+                <button class="adjust-btn"><img src="icons/align-to-left.png"></button>
+                <button class="adjust-btn"><img src="icons/align-to-right.png"></button>
+                <button class="adjust-btn"><img src="icons/center-text-alignment.png"></button>
+                <button class="adjust-btn"><img src="icons/increase font - icon.png"></button>
+                <button class="adjust-btn"><img src="icons/decrease font - icon.png"></button>
+                <button class="adjust-btn"><img src="icons/text stroke.png"></button>
+                <select name="font-select" class="adjust-btn font-family">
+                    <option>Times</option>
+                    <option>Gill Sans</option>
+                    <option>Courier New</option>
+                </select>
+                <button class="adjust-btn"><img src="icons/save.png"></button>
+                <button class="adjust-btn"><label class="color-label"><img src="icons/paint-board-and-brush.png">
+                        <input type="color" class="color-input"></label>
                 </button>
                 <button class="adjust-btn"><img src="icons/help.png"></button>
+            </div>
+            <div class="share-btns editor-layout flex space-between">
+                <form class="share-form flex space-evenly">
+                    <input name="img" id="imgData" type="hidden" />
+                    <button class="share-btn" data-trans="share">Share</button>
+                </form>
+                <button class="download-btn">
+                    <a href="#" download="my-img.jpg" data-trans="download" class="download-link">Download</a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="memes-view hide">
+        <div class="gallery-container memes">
+            <div class="memes-container">
             </div>
         </div>
     </div>
