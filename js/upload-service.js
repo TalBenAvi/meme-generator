@@ -3,8 +3,6 @@
 function uploadImg(elForm, ev) {
     ev.preventDefault();
     document.getElementById('imgData').value = gElCanvas.toDataURL("image/jpeg");
-
-    // A function to be called if request succeeds
     function onSuccess(uploadedImgUrl) {
         uploadedImgUrl = encodeURIComponent(uploadedImgUrl)
         window.open(`https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}`, '_blank')

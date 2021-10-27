@@ -9,12 +9,12 @@
     <title>Meme Generetor</title>
 </head>
 
-<body onload="onInit()">
+<body onload="onInit()"  class="overflow-hidden">
     <div class="bg-screen" onclick="toggleMenu(),toggleBtn()"></div>
     <header class="main-header flex space-between">
         <div class="main-header-logo">MemeMaker</div>
-        <div class="menu-btns-container">
-            <div id="nav-icon" onclick="toggleMenu(),toggleBtn()">
+        <div class="menu-btn-container">
+            <div id="nav-icon1" onclick="toggleBtn(),toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -85,6 +85,7 @@
                 <form class="share-form flex space-evenly">
                     <input name="img" id="imgData" type="hidden" />
                     <button class="share-btn" data-trans="share">Share</button>
+                    <button class="share-container" data-trans="share"></button>
                 </form>
                 <button class="download-btn">
                     <a href="#" download="my-img.jpg" data-trans="download" class="download-link">Download</a>
