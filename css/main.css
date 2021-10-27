@@ -188,11 +188,21 @@ a {
 .editor-container {
     padding: 20px;
     width: 400px;
+    height: 300px;
+    background-color:#52565f ;
+    border-radius: 30px;
     align-items: center;
 }
-
 .text-container {
-    width: 80%;
+    width: 100%;
+}
+.add-text-input{
+    height:50px;
+    width: 100%;
+    border-radius: 20px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
 }
 .tools-btns {
     height: 50px;
@@ -234,13 +244,24 @@ a {
 }
 .adjust-container {
     background-color: #060af5;
-    justify-content: center;
     border-radius: 0.7em;
     grid-template-columns: repeat(5, 55px);
-    grid-row-gap: 12px;
-    grid-column-gap: 25px;
-    justify-items: center;
+    grid-row-gap: 10px;
+    grid-column-gap: 20px;
     padding: 15px;
+}
+.adjust-btn {
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    -webkit-box-shadow: inset 0px -5px 5px 0px #3f42eb;
+    box-shadow: inset 0px -5px 5px 0px #3f42eb;
+    transition: background-color .4s;
+}
+.adjust-btn:hover {
+    background-color: rgb(155, 153, 153);
 }
 /* Helpers */
 
