@@ -187,6 +187,7 @@ a {
 
 .editor-container {
     padding: 20px;
+    width: 400px;
     align-items: center;
 }
 
@@ -201,35 +202,35 @@ a {
 }
 .change-sentence-btn {
     transition: background-color .3s;
-    background-color: #ff6f43;
-    -webkit-box-shadow: inset 0px -4px 0px 0px #ff6f43;
-    box-shadow: inset 0px -4px 0px 0px #ff6f43;
+    background-color: #ef43ff;
+    -webkit-box-shadow: inset 0px -4px 0px 0px #ef43ff;
+    box-shadow: inset 0px -4px 0px 0px #ef43ff;
 }
 .trash-btn {
 
     transition: background-color .3s;
-    background-color: #ff6f43;
-    -webkit-box-shadow: inset 0px -4px 0px 0px #ff6f43;
-    box-shadow: inset 0px -4px 0px 0px #ff6f43;
+    background-color: #ff0000;
+    -webkit-box-shadow: inset 0px -4px 0px 0px #ff0000;
+    box-shadow: inset 0px -4px 0px 0px #ff0000;
 }
 .add-btn {
 
     transition: background-color .3s;
-    background-color: #ff6f43;
-    -webkit-box-shadow: inset 0px -4px 0px 0px #ff6f43;
-    box-shadow: inset 0px -4px 0px 0px #ff6f43;
+    background-color: #00ff15;
+    -webkit-box-shadow: inset 0px -4px 0px 0px #00ff15;
+    box-shadow: inset 0px -4px 0px 0px #00ff15;
 }
 .up-btn {
     transition: background-color .3s;
-    background-color: #ff6f43;
-    -webkit-box-shadow: inset 0px -4px 0px 0px #ff6f43;
-    box-shadow: inset 0px -4px 0px 0px #ff6f43;
+    background-color: #0c1ae7;
+    -webkit-box-shadow: inset 0px -4px 0px 0px #0c1ae7;
+    box-shadow: inset 0px -4px 0px 0px #0c1ae7;
 }
 .down-btn {
     transition: background-color .3s;
-    background-color: #ff6f43;
-    -webkit-box-shadow: inset 0px -4px 0px 0px #ff6f43;
-    box-shadow: inset 0px -4px 0px 0px #ff6f43;
+    background-color: #0c1ae7;
+    -webkit-box-shadow: inset 0px -4px 0px 0px #0c1ae7;
+    box-shadow: inset 0px -4px 0px 0px #0c1ae7;
 }
 
 /* Helpers */
