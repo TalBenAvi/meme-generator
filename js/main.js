@@ -22,11 +22,9 @@ function showGallery() {
     document.querySelector('.gallery-page').classList.remove('hide');
     document.querySelector('.edit-page').classList.add('hide');
     document.querySelector('.memes-page').classList.add('hide');
-    document.querySelector('.share-container').style.visibility = 'hidden';
     document.querySelector('.bg-screen').classList.remove('show');
     document.querySelector('.nav-bar').classList.remove('show');
-    document.querySelector('body').classList.add('overflow-hidden');
-    document.querySelector('#nav-icon1').classList.remove('open');
+    document.querySelector('body').classList.add('hiden');
     gIsUpdating = false;
     renderImgGallery(gImgs);
 }
