@@ -5,14 +5,13 @@ function uploadImg(elForm, ev) {
     document.getElementById('imgData').value = gElCanvas.toDataURL("image/jpeg");
     function onSuccess(uploadedImgUrl) {
         uploadedImgUrl = encodeURIComponent(uploadedImgUrl)
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}`, '_blank')
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}`,'_blank')
     }
     let inputVal = document.querySelector('#imgData').value
     doUploadImg(elForm, onSuccess, inputVal);
 }
 
 function doUploadImg(imgDataUrl, onSuccess) {
-
     const formData = new FormData();
     formData.append('img', imgDataUrl)
 

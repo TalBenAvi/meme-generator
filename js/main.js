@@ -57,6 +57,7 @@ function drawLines() {
     })
 }
 function drawText(line) {
+    console.log(line);
     var txt = line.txt;
     gCtx.lineWidth = 2
     gCtx.font = `${line.size}px ${line.font}`
@@ -196,6 +197,12 @@ function textDrop() {
     }, 3)
     document.querySelector('.add-text-input').focus();
 }
+function changeFontFamily(value) {
+    gCurrFont = value
+    if (gIsUpdating === false) return;
+    familyChange();
+    drawMeme(gCurrImgUrl, true);
+}
 function getEventPos(ev) {
 
     var pos = {
@@ -248,8 +255,8 @@ function saveMeme() {
         gSavedMemes.push(currMeme);
         saveMemes();
     }, 0);
-    document.querySelector('.save-btn').style.backgroundColor = '#198754';
-    document.querySelector('.memes-link').style.backgroundColor = '#198754';
+    document.querySelector('.save-btn').style.backgroundColor = '#e20c0c9f';
+    document.querySelector('.memes-link').style.backgroundColor = '#e20c0c9f';
     setTimeout(() => {
         document.querySelector('.save-btn').style.backgroundColor = 'white';
         document.querySelector('.memes-link').style.backgroundColor = '';
@@ -296,6 +303,11 @@ function textAlign(align) {
     alignText(align);
     drawMeme(gCurrImgUrl, true);
 }
+function changeColor(color) {
+    if (!gIsUpdating) return;
+    colorChange(color);
+    drawMeme(gCurrImgUrl, true);
+}
 function onSetLang() {
     setLang();
     document.querySelector('.bg-screen').classList.remove('show')
@@ -335,6 +347,18 @@ function startTrans() {
         if (el.nodeName === 'INPUT') el.placeholder = txt;
         else el.innerText = txt
     })
+}
+function setFilter(filterBy) {
+    onSetFilter(filterBy)
+    var imgsForDisplay = getImgsForDisplay();
+    renderImgGallery(imgsForDisplay);
+}
+function downloadImg(elLink) {
+    drawMeme(gCurrImgUrl, false);
+    var imgContent = gElCanvas.toDataURL('image/jpeg')
+    elLink.href = imgContent 
+    drawMeme(gCurrImgUrl, false);
+
 }
 function toggleMenu() {
     document.querySelector('.nav-bar').classList.toggle('show');

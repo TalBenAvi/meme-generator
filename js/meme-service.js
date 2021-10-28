@@ -1,13 +1,13 @@
 'use strict'
 var gImgs;
+var gSavedMemes;
+var gFilter = '';
 
 var gMeme = {
     imgId: 0,
     lineIdx: 0,
     textLines: []
 }
-var gSavedMemes;
-
 function loadImgs() {
     gImgs = loadFromStorage('ImgsDB');
     if (!gImgs) gImgs = [
@@ -91,4 +91,21 @@ function saveMemes() {
 function loadMemes() {
     gSavedMemes = loadFromStorage('SavedMemes');
     if (!gSavedMemes) gSavedMemes = [];
+}
+function onSetFilter(filterBy) {
+    gFilter = filterBy.toLowerCase();
+}
+function getImgsForDisplay() {
+    var imgs = gImgs.filter((img) => {
+        return img.keywords.some((word) => {
+            return word.includes(gFilter);
+        });
+    })
+    return imgs
+}
+function familyChange() {
+    gMeme.textLines[gMeme.lineIdx].font = gCurrFont;
+}
+function colorChange(color){
+    gMeme.textLines[gMeme.lineIdx].color = color;
 }

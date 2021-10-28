@@ -30,15 +30,22 @@
     <div class="gallery-page">
         <div class="gallery-nav-bar flex space-between">
             <div class="search-input-container flex space-between">
-                <input data-trans="search" type="text" class="search-input" placeholder="search">
+                <input data-trans="search" type="text" class="search-input" placeholder="search" oninput="setFilter(this.value)">
                 <button class="search-btn"><object data="icons/search-icon.png" class="search-icon"
                         fill="green"></object></button>
             </div>
             <label class="file-input-container flex">
                 <span data-trans="import">Import image</span>
                 <img src="icons/import.png">
-                <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)"/>
+                <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
             </label>
+            <div class="filter-options flex space-evenly">
+                <div class="filter-opt" data-trans="funny" onclick="setFilter('funny')">Funny</div>
+                <div class="filter-opt" data-trans="kids" onclick="setFilter('kids')">kids</div>
+                <div class="filter-opt" data-trans="happy" onclick="setFilter('happy')">happy</div>
+                <div class="filter-opt" data-trans="president" onclick="setFilter('president')">president</div>
+                <div class="filter-opt" data-trans="animal" onclick="setFilter('animal')">Animal</div>
+            </div>
         </div>
         <div class="gallery-container">
             <div class="gallery grid"></div>
@@ -51,7 +58,8 @@
         </div>
         <div class="editor-container flex space-between column">
             <div class="text-container editor-layout flex column">
-                <input type="text" class="add-text-input" data-trans="add-text-here" oninput="updateText()"placeholder="Enter Text Here">
+                <input type="text" class="add-text-input" data-trans="add-text-here" oninput="updateText()"
+                    placeholder="Enter Text Here">
                 <div class="tools-btn-container space-between flex">
                     <button class="tools-btns change-sentence-btn" onclick="switchFocus()"><img
                             src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
@@ -65,20 +73,22 @@
             <div class="adjust-container editor-layout grid">
                 <button class="adjust-btn"><img src="icons/align-to-left.png" onclick="textAlign('left')"></button>
                 <button class="adjust-btn"><img src="icons/align-to-right.png" onclick="textAlign('right')"></button>
-                <button class="adjust-btn"><img src="icons/center-text-alignment.png" onclick="textAlign('center')"></button>
+                <button class="adjust-btn"><img src="icons/center-text-alignment.png"
+                        onclick="textAlign('center')"></button>
                 <button class="adjust-btn"><img src="icons/increase font-icon.png" onclick="changeFontSize(1)"></button>
-                <button class="adjust-btn"><img src="icons/decrease font-icon.png" onclick="changeFontSize(-1)"></button>
+                <button class="adjust-btn"><img src="icons/decrease font-icon.png"
+                        onclick="changeFontSize(-1)"></button>
                 <button class="adjust-btn"><img src="icons/text stroke.png"></button>
-                <select name="font-select" class="adjust-btn font-family">
-                    <option>Times</option>
+                <select name="font-select" class="adjust-btn font-family" onchange="changeFontFamily(this.value)">
+                    <option>Verdana</option>
                     <option>Gill Sans</option>
                     <option>Courier New</option>
                 </select>
                 <button class="adjust-btn save-btn"><img src="icons/save.png" onclick="saveMeme()"></button>
                 <button class="adjust-btn"><label class="color-label"><img src="icons/paint-board-and-brush.png">
-                        <input type="color" class="color-input"></label>
+                        <input type="color" class="color-input" oninput="changeColor(this.value)"></label>
                 </button>
-                <button class="adjust-btn"><img src="icons/help.png"></button>
+                <!-- <button class="adjust-btn"><img src="icons/help.png"></button> -->
             </div>
             <div class="share-btns editor-layout flex space-between">
                 <form class="share-form flex space-evenly">
@@ -87,7 +97,7 @@
                     <button class="share-container" data-trans="share"></button>
                 </form>
                 <button class="download-btn">
-                    <a href="#" download="my-img.jpg" data-trans="download" class="download-link">Download</a>
+                    <a href="#" download="my-img.jpg" data-trans="download" class="download-link" onclick="downloadImg(this)">Download</a>
                 </button>
             </div>
         </div>
