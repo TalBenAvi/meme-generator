@@ -367,3 +367,60 @@ function toggleMenu() {
 function toggleBtn() {
     document.querySelector('#nav-icon1').classList.toggle('open');
 }
+//////////////////////// EVENTS////////////////
+var elInput = document.querySelector('.add-text-input');
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+    window.addEventListener('resize', () => {
+        resizeCanvas()
+        createCanvas()
+    })
+    elInput.addEventListener('keyup', (ev) => {
+        if (ev.keyCode === 13) {
+            onAddText();
+            elInput.blur();
+            dropText();
+        }
+        if (ev.keyCode === 46) {
+            if (gIsUpdating) {
+                deleteText();
+            }
+        }
+    })
+    window.addEventListener('keyup', (ev) => {
+        if (ev.keyCode === 9) {
+            ev.preventDefault();
+            onSwitchText();
+        }
+        if (ev.keyCode === 38) {
+            onTextMove(-1)
+        }
+        if (ev.keyCode === 40) {
+            onTextMove(1)
+        }
+    })
+}
+function addMouseListeners() {
+    gElCanvas.addEventListener('mousemove', onMove);
+    gElCanvas.addEventListener('mousedown', chooseText);
+    gElCanvas.addEventListener('mouseup', dropText);
+}
+function addTouchListeners() {
+    gElCanvas.addEventListener('touchmove', onMove);
+    gElCanvas.addEventListener('touchstart', chooseText);
+    gElCanvas.addEventListener('touchend', dropText);
+}
+function onMove(ev) {
+    ev.stopPropagation()
+    const currLine = gMeme.lines[gMeme.selectedLineIdx];
+    if (!currLine) return;
+    if (currLine.isGrab) {
+        const pos = getEvPos(ev)
+        const dx = pos.x - gStartPos.x
+        const dy = pos.y - gStartPos.y
+        onMoveText(dx, dy)
+        gStartPos = pos
+        drawMeme(gCurrImgUrl, true);
+    }
+}
