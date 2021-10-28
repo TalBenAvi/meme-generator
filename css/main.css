@@ -196,6 +196,7 @@ a {
 
 .edit-page {
     display: flex;
+    /* justify-content: space-evenly; */
     margin-top: 40px;
 }
 
@@ -212,8 +213,8 @@ a {
 
 .editor-container {
     padding: 20px;
-    width: 400px;
-    height: 450px;
+    width: 550px;
+    height: 550px;
     background-color: #52565f;
     border-radius: 30px;
     align-items: center;
@@ -233,13 +234,12 @@ a {
     margin-bottom: 10px;
 }
 .tools-btn-container {
-    width: 220px;
+    width: 80%;
     margin: 15px auto;
     justify-content: center;
 }
 .tools-btns {
     height: 50px;
-    width: 50px;
     border-radius: 0.8em;
     border: none;
     margin-bottom: 10px;
@@ -285,7 +285,7 @@ a {
     border-radius: 0.7em;
     grid-template-columns: repeat(5, 55px);
     grid-row-gap: 10px;
-    grid-column-gap: 20px;
+    grid-column-gap: 35px;
     padding: 15px;
 }
 
@@ -408,7 +408,6 @@ input[type="file"] {
     .canvas-container, .editor-container {
         width: 450px;
         height: 450px;
-        background-color: #383B42;
         border-radius: 2em;
     }
     .add-text-input {
@@ -419,7 +418,7 @@ input[type="file"] {
     }
     .adjust-container {
         grid-template-columns: repeat(5, 45px);
-        grid-column-gap: 15px;
+        grid-column-gap: 30px;
     }
     .tools-btns {
         height: 45px;
@@ -441,7 +440,6 @@ input[type="file"] {
     .canvas-container, .editor-container {
         width: 380px;
         height: 380px;
-        background-color: #383B42;
         border-radius: 2em;
     }
     .editor-container {
@@ -449,11 +447,12 @@ input[type="file"] {
     }
     .adjust-container {
         grid-row-gap: 5px;
+        grid-column-gap: 20px;
     }
 }
 
 @media (max-width:840px) {
-    .editor-page {
+    .edit-page {
         flex-direction: column;
         align-items: center;
         margin-top: 0;
@@ -461,7 +460,6 @@ input[type="file"] {
     .canvas-container, .editor-container {
         width: 450px;
         height: 450px;
-        background-color: #383B42;
         border-radius: 2em;
         margin-top: 20px;
     }
@@ -530,7 +528,6 @@ input[type="file"] {
     .canvas-container, .editor-container {
         width: 400px;
         height: 400px;
-        background-color: #383B42;
         border-radius: 2em;
         margin-top: 20px;
     }
@@ -580,7 +577,6 @@ input[type="file"] {
     .canvas-container, .editor-container {
         width: 350px;
         height: 350px;
-        background-color: #383B42;
         border-radius: 2em;
         margin-top: 20px;
     }
