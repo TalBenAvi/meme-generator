@@ -108,9 +108,9 @@ function onAddText() {
     if (gIsUpdating) {
         if (!elTextInput.value) return;
         gMeme.textLines[gMeme.lineIdx].txt = elTextInput.value;
-        drawText(gMeme.textLines[gMeme.LineIdx]);
+        drawText(gMeme.textLines[gMeme.lineIdx]);
         gIsUpdating = false;
-        document.querySelector('.add-btn').innerHTML = `<img src="icons/add.png" alt="">`;
+        document.querySelector('.add-btn').innerHTML = `<img src="icons/add.png">`;
         drawMeme(gCurrImgUrl, false);
     } else {
         var txt = elTextInput.value;
@@ -145,7 +145,7 @@ function selectText(ev) {
     gStartPos = pos;
     gCurrHeight = null
     gIsUpdating = true;
-    document.querySelector('.add-btn').innerHTML = `<img src="icons/ok.png" onclick="">`
+    document.querySelector('.add-btn').innerHTML = `<img src="icons/ok.png">`
     document.querySelector('.add-text-input').value = gMeme.textLines[gMeme.lineIdx].txt;
     if (window.screen.width > 540) {
         document.querySelector('.add-text-input').focus();
@@ -368,7 +368,7 @@ function addListeners() {
         if (ev.keyCode === 13) {
             onAddText();
             elInput.blur();
-            dropText();
+            textDrop();
         }
         if (ev.keyCode === 46) {
             if (gIsUpdating) {
