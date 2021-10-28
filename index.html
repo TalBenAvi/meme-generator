@@ -34,11 +34,11 @@
                 <button class="search-btn"><object data="icons/search-icon.png" class="search-icon"
                         fill="green"></object></button>
             </div>
-            <div class="file-input-container flex">
+            <label class="file-input-container flex">
                 <span data-trans="import">Import image</span>
                 <img src="icons/import.png">
-                <input type="file" class="file-input btn" name="image" />
-            </div>
+                <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)"/>
+            </label>
         </div>
         <div class="gallery-container">
             <div class="gallery grid"></div>

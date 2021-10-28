@@ -229,6 +229,29 @@ function onSetLang() {
     document.querySelector('#nav-icon1').classList.remove('open');
     startTrans();
 }
+function onImgInput(ev) {
+    loadImgFromInput(ev, renderImg)
+}
+function loadImgFromInput(ev, onImageReady) {
+    document.querySelector('.share-container').innerHTML = ''
+    var reader = new FileReader()
+
+    reader.onload = function (event) {
+        console.log('event:', event)
+        var img = new Image()
+        img.onload = onImageReady.bind(null, img)
+        img.src = event.target.result
+    }
+    reader.readAsDataURL(ev.target.files[0])
+}
+function renderImg(img) {
+    createNewImg(img);
+    gCurrImgUrl = img.src;
+    document.querySelector('.gallery-page').classList.add('hide');
+    document.querySelector('.edit-page').classList.remove('hide');
+    resizeCanvas();
+    gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
+}
 function startTrans() {
     var els = document.querySelectorAll('[data-trans]')
     els.forEach(function (el) {
