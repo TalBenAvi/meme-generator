@@ -10,12 +10,12 @@ var gStartPos;
 const gTouchEvents = ['touchstart', 'touchmove', 'touchend']
 
 function onInit(){
-    console.log('hi');
-    var imgs=loadImgs();
-    renderImgGallery(imgs);
+    loadImgs();
+    renderImgGallery(gImgs);
     createCanvas();
     resizeCanvas();
     loadMemes();
+    addListeners();
     document.querySelector('.color-input').value = '#ffffff';
 }
 function showGallery() {
@@ -57,7 +57,6 @@ function drawLines() {
     })
 }
 function drawText(line) {
-    console.log(line);
     var txt = line.txt;
     gCtx.lineWidth = 2
     gCtx.font = `${line.size}px ${line.font}`
@@ -203,22 +202,6 @@ function changeFontFamily(value) {
     familyChange();
     drawMeme(gCurrImgUrl, true);
 }
-function getEventPos(ev) {
-
-    var pos = {
-        x: ev.offsetX,
-        y: ev.offsetY
-    }
-    if (gTouchEvents.includes(ev.type)) {
-        ev.preventDefault()
-        ev = ev.changedTouches[0]
-        pos = {
-            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
-        }
-    }
-    return pos
-}
 function showMemes() {
     document.querySelector('.edit-page').classList.add('hide');
     document.querySelector('.gallery-page').classList.add('hide');
@@ -238,10 +221,10 @@ function renderMemes() {
             case 'en':
                 strHTML = 'No Saved Memes Yet';
                 break;
-            case 'he':
-                strHTML = 'אין ממים שמורים'
-        }
-    }
+                case 'he':
+                    strHTML = 'אין ממים שמורים'
+                }
+            }
     document.querySelector('.memes-container').innerHTML = strHTML;
 }
 function saveMeme() {
@@ -261,6 +244,12 @@ function saveMeme() {
         document.querySelector('.save-btn').style.backgroundColor = 'white';
         document.querySelector('.memes-link').style.backgroundColor = '';
     }, 500);
+}
+function editMeme(memeIdx) {
+    gMeme = gSavedMemes[memeIdx].data;
+    document.querySelector('.memes-page').classList.add('hide');
+    document.querySelector('.edit-page').classList.remove('hide');
+    drawMeme(gImgs[gMeme.imgId - 1].url);
 }
 function onSetMemeImg(imgId) {
     var imgUrl = setMemeImg(imgId);
@@ -288,10 +277,10 @@ function showFocus() {
         case 'right':
             startX -= currText.width / 2;
             break;
-    }
-    gCtx.rect(startX, startY, width, height)
-    gCtx.strokeStyle = 'black'
-    gCtx.stroke()
+        }
+        gCtx.rect(startX, startY, width, height)
+        gCtx.strokeStyle = 'black'
+        gCtx.stroke()
 }
 function changeFontSize(diff) {
     if (!gIsUpdating) return;
@@ -323,9 +312,8 @@ function onImgInput(ev) {
 function loadImgFromInput(ev, onImageReady) {
     document.querySelector('.share-container').innerHTML = ''
     var reader = new FileReader()
-
+    
     reader.onload = function (event) {
-        console.log('event:', event)
         var img = new Image()
         img.onload = onImageReady.bind(null, img)
         img.src = event.target.result
@@ -358,7 +346,7 @@ function downloadImg(elLink) {
     var imgContent = gElCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent 
     drawMeme(gCurrImgUrl, false);
-
+    
 }
 function toggleMenu() {
     document.querySelector('.nav-bar').classList.toggle('show');
@@ -394,29 +382,45 @@ function addListeners() {
             onSwitchText();
         }
         if (ev.keyCode === 38) {
-            onTextMove(-1)
+            moveText(-1)
         }
         if (ev.keyCode === 40) {
-            onTextMove(1)
+            moveText(1)
         }
     })
 }
 function addMouseListeners() {
     gElCanvas.addEventListener('mousemove', onMove);
-    gElCanvas.addEventListener('mousedown', chooseText);
-    gElCanvas.addEventListener('mouseup', dropText);
+    gElCanvas.addEventListener('mousedown', selectText);
+    gElCanvas.addEventListener('mouseup', textDrop);
 }
 function addTouchListeners() {
     gElCanvas.addEventListener('touchmove', onMove);
-    gElCanvas.addEventListener('touchstart', chooseText);
-    gElCanvas.addEventListener('touchend', dropText);
+    gElCanvas.addEventListener('touchstart', selectText);
+    gElCanvas.addEventListener('touchend', textDrop);
+}
+function getEventPos(ev) {
+
+    var pos = {
+        x: ev.offsetX,
+        y: ev.offsetY
+    }
+    if (gTouchEvents.includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
+        }
+    }
+    return pos
 }
 function onMove(ev) {
     ev.stopPropagation()
-    const currLine = gMeme.lines[gMeme.selectedLineIdx];
+    const currLine = gMeme.textLines[gMeme.lineIdx];
     if (!currLine) return;
     if (currLine.isGrab) {
-        const pos = getEvPos(ev)
+        const pos = getEventPos(ev)
         const dx = pos.x - gStartPos.x
         const dy = pos.y - gStartPos.y
         onMoveText(dx, dy)
