@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +7,7 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Meme Generetor</title>
 </head>
-
-<body onload="onInit()" class="overflow-hidden">
+<body onload="onInit()">
     <div class="bg-screen" onclick="toggleMenu(),toggleBtn()"></div>
     <header class="main-header flex space-between">
         <div class="main-header-logo">MemeMaker</div>
@@ -20,7 +18,6 @@
                 <span></span>
             </div>
         </div>
-
         <nav class="nav-bar flex">
             <div data-trans="gallery" class="link" onclick="showGallery()"><a href="#">Gallery</a></div>
             <div data-trans="memes" class="link memes-link" onclick="showMemes()"><a href="#"> Saved Memes</a></div>
@@ -40,16 +37,15 @@
                 <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
             </label>
             <div class="filter-options flex space-evenly">
+                <div class="filter-opt" data-trans="happy" onclick="setFilter('happy')">happy</div>
+                <div class="filter-opt" data-trans="animal" onclick="setFilter('animal')">Animal</div>
                 <div class="filter-opt" data-trans="funny" onclick="setFilter('funny')">Funny</div>
                 <div class="filter-opt" data-trans="kids" onclick="setFilter('kids')">kids</div>
-                <div class="filter-opt" data-trans="happy" onclick="setFilter('happy')">happy</div>
                 <div class="filter-opt" data-trans="president" onclick="setFilter('president')">president</div>
-                <div class="filter-opt" data-trans="animal" onclick="setFilter('animal')">Animal</div>
             </div>
         </div>
         <div class="gallery-container">
-            <div class="gallery grid"></div>
-
+            <div class="gallery"></div>
         </div>
     </div>
     <div class="edit-page space-evenly hide">
@@ -91,7 +87,7 @@
                 <!-- <button class="adjust-btn"><img src="icons/help.png"></button> -->
             </div>
             <div class="share-btns editor-layout flex space-between">
-                <form class="share-form flex space-evenly">
+                <form class="share-form flex space-evenly" onsubmit="uploadImg(this, event)">
                     <input name="img" id="imgData" type="hidden" />
                     <button class="share-btn" data-trans="share">Share</button>
                     <button class="share-container" data-trans="share"></button>
