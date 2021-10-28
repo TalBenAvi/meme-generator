@@ -24,7 +24,7 @@
         <nav class="nav-bar flex">
             <div data-trans="gallery" class="link" onclick="showGallery()"><a href="#">Gallery</a></div>
             <div data-trans="memes" class="link" onclick="showMemes()"><a href="#"> Saved Memes</a></div>
-            <div data-trans="lang" class="link"><a href="#">עברית</a></div>
+            <div data-trans="lang" class="link"><a href="#" onclick="onSetLang()">עברית</a></div>
         </nav>
     </header>
     <div class="gallery-page">
@@ -35,7 +35,7 @@
                         fill="green"></object></button>
             </div>
             <div class="file-input-container flex">
-                <span data-trans="import image">Import image</span>
+                <span data-trans="import">Import image</span>
                 <img src="icons/import.png">
                 <input type="file" class="file-input btn" name="image" />
             </div>

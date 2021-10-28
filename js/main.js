@@ -1,10 +1,10 @@
 'use strict'
 var gElCanvas;
 var gCtx;
-var gCurrImgUrl;
-var gCurrHeight;
 var gIsUpdating = false;
 var gDontGrab = false;
+var gCurrImgUrl;
+var gCurrHeight;
 var gCurrFont;
 var gStartPos;
 const gTouchEvents = ['touchstart', 'touchmove', 'touchend']
@@ -105,10 +105,10 @@ function onAddText() {
     var elTextInput = document.querySelector('.add-text-input');
     if (gIsUpdating) {
         if (!elTextInput.value) return;
-        gMeme.textLines[gMeme.LineIdx].txt = elTextInput.value;
+        gMeme.textLines[gMeme.lineIdx].txt = elTextInput.value;
         drawText(gMeme.textLines[gMeme.LineIdx]);
         gIsUpdating = false;
-        document.querySelector('.add-text-btn').innerHTML = `<img src="ICONS/add.png" alt="">`;
+        document.querySelector('.add-btn').innerHTML = `<img src="icons/add.png" alt="">`;
         drawMeme(gCurrImgUrl, false);
     } else {
         var txt = elTextInput.value;
@@ -122,7 +122,7 @@ function onAddText() {
     elTextInput.value = '';
     document.querySelector('.color-input').value = '#ffffff'
     gCurrHeight = null;
-    // textDrop();
+    textDrop();
 }
 function selectText(ev) {
     ev.stopPropagation()
@@ -143,7 +143,7 @@ function selectText(ev) {
     gStartPos = pos;
     gCurrHeight = null
     gIsUpdating = true;
-    document.querySelector('.add-text-btn').innerHTML = `<img src="icons/ok.png" alt="">`
+    document.querySelector('.add-btn').innerHTML = `<img src="icons/ok.png">`
     document.querySelector('.add-text-input').value = gMeme.textLines[gMeme.lineIdx].txt;
     if (window.screen.width > 540) {
         document.querySelector('.add-text-input').focus();
@@ -159,6 +159,19 @@ function moveText(diff) {
     if (!gIsUpdating) return;
     onMoveText(diff);
     drawMeme(gCurrImgUrl, true)
+}
+function textDrop() {
+    if (!gMeme.textLines.length) return;
+    if (!gMeme.textLines[gMeme.lineIdx].isGrab) {
+        onAddText();
+        return;
+    }
+    setTextGrab(false);
+    gDontGrab = true;
+    setTimeout(() => {
+        gDontGrab = false;
+    }, 3)
+    document.querySelector('.add-text-input').focus();
 }
 function getEventPos(ev) {
 
@@ -206,6 +219,23 @@ function showFocus() {
     gCtx.rect(startX, startY, width, height)
     gCtx.strokeStyle = 'black'
     gCtx.stroke()
+}
+function onSetLang() {
+    setLang();
+    document.querySelector('.bg-screen').classList.remove('show')
+    document.querySelector('.nav-bar').classList.remove('show')
+    if (gCurrLang === 'he') document.body.classList.add('rtl')
+    else document.body.classList.remove('rtl')
+    document.querySelector('#nav-icon1').classList.remove('open');
+    startTrans();
+}
+function startTrans() {
+    var els = document.querySelectorAll('[data-trans]')
+    els.forEach(function (el) {
+        var txt = getTrans(el.dataset.trans)
+        if (el.nodeName === 'INPUT') el.placeholder = txt;
+        else el.innerText = txt
+    })
 }
 function toggleMenu() {
     document.querySelector('.nav-bar').classList.toggle('show');

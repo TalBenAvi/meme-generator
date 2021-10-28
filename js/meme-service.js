@@ -11,9 +11,9 @@ var gSavedMemes;
 function loadImgs() {
     gImgs = loadFromStorage('ImgsDB');
     if (!gImgs) gImgs = [
-        { id: 1, url: 'meme-imgs (square)/1.jpg', keywords: ['ugly', 'trump', 'funny', 'president'] },
+        { id: 1, url: 'meme-imgs (square)/1.jpg', keywords: ['ugly', 'trump', 'president'] },
         { id: 2, url: 'meme-imgs (square)/2.jpg', keywords: ['happy', 'animal', 'love'] },
-        { id: 3, url: 'meme-imgs (square)/3.jpg', keywords: ['kids', 'animal', 'cute', 'sleep'] },
+        { id: 3, url: 'meme-imgs (square)/3.jpg', keywords: ['kids', 'animal', 'cute'] },
         { id: 4, url: 'meme-imgs (square)/4.jpg', keywords: ['animal', 'sleep'] },
         { id: 5, url: 'meme-imgs (square)/5.jpg', keywords: ['happy', 'kids'] },
         { id: 6, url: 'meme-imgs (square)/6.jpg', keywords: ['happy', 'funny'] },
@@ -24,11 +24,11 @@ function loadImgs() {
         { id: 11, url: 'meme-imgs (square)/11.jpg', keywords: ['happy', 'men', 'sport'] },
         { id: 12, url: 'meme-imgs (square)/12.jpg', keywords: ['happy', 'men'] },
         { id: 13, url: 'meme-imgs (square)/13.jpg', keywords: ['happy', 'men', 'funny'] },
-        { id: 14, url: 'meme-imgs (square)/14.jpg', keywords: ['happy', 'men', 'scary'] },
+        { id: 14, url: 'meme-imgs (square)/14.jpg', keywords: ['men', 'scary'] },
         { id: 15, url: 'meme-imgs (square)/15.jpg', keywords: ['happy', 'men'] },
         { id: 16, url: 'meme-imgs (square)/16.jpg', keywords: ['happy', 'funny', 'men'] },
         { id: 17, url: 'meme-imgs (square)/17.jpg', keywords: ['happy', 'putin', 'president'] },
-        { id: 18, url: 'meme-imgs (square)/18.jpg', keywords: ['happy', 'kids', 'toys'] },
+        { id: 18, url: 'meme-imgs (square)/18.jpg', keywords: ['kids', 'toys'] },
     ]
     return gImgs;
 }
@@ -61,7 +61,7 @@ function createNewImg(img) {
     gImgs.push(newImg);
     saveToStorage('ImgsDB', gImgs)
 }
-function onMoveText(diff) {
+function textMove(diff) {
     if (!gCurrHeight) {
         gCurrHeight = gMeme.textLines[gMeme.lineIdx].height;
     }
@@ -71,7 +71,7 @@ function onMoveText(diff) {
 function setTextGrab(isGrab) {
     gMeme.textLines[gMeme.lineIdx].isGrab = isGrab;
 }
-function moveText(dx, dy) {
+function onMoveText(dx, dy) {
     gMeme.textLines[gMeme.lineIdx].posX += dx
     gMeme.textLines[gMeme.lineIdx].posY += dy
 }
