@@ -61,3 +61,17 @@ function createNewImg(img) {
     gImgs.push(newImg);
     saveToStorage('ImgsDB', gImgs)
 }
+function onMoveText(diff) {
+    if (!gCurrHeight) {
+        gCurrHeight = gMeme.textLines[gMeme.lineIdx].height;
+    }
+    gCurrHeight += (diff * 10);
+    gMeme.textLines[gMeme.lineIdx].height = gCurrHeight;
+}
+function setTextGrab(isGrab) {
+    gMeme.textLines[gMeme.lineIdx].isGrab = isGrab;
+}
+function moveText(dx, dy) {
+    gMeme.textLines[gMeme.lineIdx].posX += dx
+    gMeme.textLines[gMeme.lineIdx].posY += dy
+}

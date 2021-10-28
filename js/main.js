@@ -7,6 +7,8 @@ var gIsUpdating = false;
 var gDontGrab = false;
 var gCurrFont;
 var gStartPos;
+const gTouchEvents = ['touchstart', 'touchmove', 'touchend']
+
 function onInit(){
     console.log('hi');
     var imgs=loadImgs();
@@ -90,7 +92,6 @@ function drawText(line) {
         line.height = y;
     }
 }
-
 function drawMeme(imgUrl, isFocus) {
     var img = new Image()
     img.src = imgUrl;
@@ -121,20 +122,19 @@ function onAddText() {
     elTextInput.value = '';
     document.querySelector('.color-input').value = '#ffffff'
     gCurrHeight = null;
-    dropText();
+    // textDrop();
 }
 function selectText(ev) {
     ev.stopPropagation()
     if (gDontGrab) return;
-    const pos = getEvPos(ev);
+    const pos = getEventPos(ev);
     var x = pos.x;
     var y = pos.y;
     var lineIdx = gMeme.textLines.findIndex((line) => {
         return (x > line.posX && x < line.posX + line.width && y < line.posY && y > line.posY - line.size)
     })
-
     if (lineIdx >= 0) gMeme.lineIdx = lineIdx;
-    else {                  // deleting the square if clicking on picture
+    else {
         drawMeme(gCurrImgUrl, false);
         return;
     }
@@ -143,7 +143,7 @@ function selectText(ev) {
     gStartPos = pos;
     gCurrHeight = null
     gIsUpdating = true;
-    document.querySelector('.add-text-btn').innerHTML = `<img src="ICONS/check.png" alt="">`
+    document.querySelector('.add-text-btn').innerHTML = `<img src="icons/ok.png" alt="">`
     document.querySelector('.add-text-input').value = gMeme.textLines[gMeme.lineIdx].txt;
     if (window.screen.width > 540) {
         document.querySelector('.add-text-input').focus();
@@ -154,6 +154,27 @@ function updateText() {
     if (!gIsUpdating) return;
     gMeme.textLines[gMeme.lineIdx].txt = document.querySelector('.add-text-input').value
     drawMeme(gCurrImgUrl, true);
+}
+function moveText(diff) {
+    if (!gIsUpdating) return;
+    onMoveText(diff);
+    drawMeme(gCurrImgUrl, true)
+}
+function getEventPos(ev) {
+
+    var pos = {
+        x: ev.offsetX,
+        y: ev.offsetY
+    }
+    if (gTouchEvents.includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
+        }
+    }
+    return pos
 }
 function onSetMemeImg(imgId) {
     var imgUrl = setMemeImg(imgId);
