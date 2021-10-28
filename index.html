@@ -9,7 +9,7 @@
     <title>Meme Generetor</title>
 </head>
 
-<body onload="onInit()"  class="overflow-hidden">
+<body onload="onInit()" class="overflow-hidden">
     <div class="bg-screen" onclick="toggleMenu(),toggleBtn()"></div>
     <header class="main-header flex space-between">
         <div class="main-header-logo">MemeMaker</div>
@@ -45,15 +45,14 @@
 
         </div>
     </div>
-
     <div class="edit-page space-evenly hide">
         <div class="canvas-container">
             <canvas id="edit-canvas" height="100" width="100" onclick="selectText(event)"></canvas>
         </div>
         <div class="editor-container flex space-between column">
             <div class="text-container editor-layout flex column">
-                <input type="text" class="add-text-input" data-trans="add-text-here" oninput="updateText()" placeholder="Enter Text Here">
-                <div class="tools-btn-container flex space-between">
+                <input type="text" class="add-text-input" data-trans="add-text-here" oninput="updateText()"placeholder="Enter Text Here">
+                <div class="tools-btn-container space-between flex">
                     <button class="tools-btns change-sentence-btn"><img
                             src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
                     <button class="tools-btns trash-btn"><img src="icons/trash.png"></button>
@@ -93,7 +92,6 @@
             </div>
         </div>
     </div>
-
     <div class="memes-page hide">
         <div class="gallery-container memes">
             <div class="memes-container">

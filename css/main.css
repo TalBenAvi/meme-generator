@@ -1,14 +1,11 @@
 @import url(nav-btn-menu.css);
-
 * {
     box-sizing: border-box;
 }
-
 html {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
-
 body {
     margin: 0;
     font-size: 1.375rem;
@@ -21,7 +18,6 @@ body {
 .overflow-hidden {
     overflow-y: hidden;
 }
-
 .bg-screen {
     position: fixed;
     top: 0;
@@ -34,56 +30,60 @@ body {
     pointer-events: none;
     transition: opacity .3s;
 }
-
 .bg-screen.show {
     opacity: 1;
     pointer-events: all;
 }
+::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(52deg, #30bbb4 43%, #dde110 64%);
+    border-radius: 15px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(13deg, #dde110 14%, #30bbb4 64%);
+}
+::-webkit-scrollbar-track {
+    background: #22252c;
+    border-radius: 15px;
+}
 /* HEADER */
-
 .main-header {
     background: linear-gradient(to left, #dde110, #ed2f2f);
     height: 80px;
     align-items: center;
 }
-
 .main-header-logo {
     margin-inline-start: 60px;
 }
-
 .nav-bar {
     margin-inline-end: 60px;
 }
-
 a {
     text-decoration: none;
     color: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
 .link a {
     padding: 9px 21px;
 }
-
 .link {
     margin-inline-end: 20px;
     padding: 10px 22px;
     border-radius: 20px;
     transition:.5s;
 }
-
 .link:hover {
     background-color: white;
     color: black;
     cursor: pointer;
 }
-
 .link:hover a {
     color: #fd1212;
 }
-
 /* MAIN GALLERY */
-
 .search-input-container {
     height: 60px;
     flex-grow: 1;
@@ -96,7 +96,6 @@ a {
     flex-shrink: 10;
     min-width: 200px;
 }
-
 .search-btn {
     height: 50px;
     width: 50px;
@@ -106,20 +105,16 @@ a {
     border-radius: 20px;
     transition: background-color .3s;
 }
-
 .search-input:focus-visible {
     outline: none;
 }
-
 .search-btn:hover {
     background-color: #dde110;
     cursor: pointer;
 }
-
 .search-icon {
     object-fit: contain;
 }
-
 .file-input-container {
     align-items: center;
     height: 60px;
@@ -133,18 +128,15 @@ a {
     line-height: 1em;
     padding: 0 10px;
 }
-
 .file-input-container:hover {
     cursor: pointer;
     background-color: #383B42;
 }
-
 .file-input-container img {
     display: none;
     height: 35px;
     width: 35px;
 }
-
 .search-input {
     background-color: #22252C;
     border: none;
@@ -152,7 +144,6 @@ a {
     color: white;
     width: 100%;
 }
-
 .gallery-page {
     background-color: #22252C;
     width: 95%;
@@ -160,12 +151,10 @@ a {
     margin: 20px auto;
     padding: 10px;
 }
-
 .galllery-container {
     padding: 10px;
     height: 100%;
 }
-
 .gallery {
     display: grid;
     justify-content: center;
@@ -178,39 +167,32 @@ a {
     /* overflow-y: scroll; */
     padding-top: 15px;
 }
-
 .gallery img {
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
     transition: box-shadow .4s;
 }
-
 .gallery img:hover {
     -webkit-box-shadow: 0px 0px 7px 10px #dde110;
     box-shadow: 0px 0px 7px 10px #dde110;
     cursor: pointer;
 }
-
 /* EDITOR PAGE */
-
 .edit-page {
     display: flex;
     /* justify-content: space-evenly; */
     margin-top: 40px;
 }
-
 .canvas-container {
     width: 500px;
     height: 500px;
     background-color: white;
     border-radius: 20px;
 }
-
 #edit-canvas {
     border-radius: 20px;
 }
-
 .editor-container {
     padding: 20px;
     width: 550px;
@@ -219,11 +201,9 @@ a {
     border-radius: 30px;
     align-items: center;
 }
-
 .text-container {
     width: 100%;
 }
-
 .add-text-input {
     height: 50px;
     width: 100%;
@@ -244,7 +224,6 @@ a {
     border: none;
     margin-bottom: 10px;
 }
-
 .change-sentence-btn {
     transition: background-color .3s;
     background-color: #ef43ffa6;
@@ -253,15 +232,20 @@ a {
     background-color: #ef43ff;
 }
 .trash-btn {
-    transition: background-color .3s;
     background-color: #e20c0c9f;
+    -webkit-box-shadow: inset 0px -4px 0px 0px #791616;
+    box-shadow: inset 0px -4px 0px 0px #791616;
+    transition: background-color .3s;
 }
 .trash-btn:hover{
     background-color: #e20c0c;
 }
 .add-btn {
-    transition: background-color .3s;
     background-color: #0dff219a;
+    -webkit-box-shadow: inset 0px -4px 0px 0px #015D33;
+    box-shadow: inset 0px -4px 0px 0px #015D33;
+    transition: background-color .3s;
+
 }
 .add-btn:hover{
     background-color: #0dff21;
@@ -288,7 +272,6 @@ a {
     grid-column-gap: 35px;
     padding: 15px;
 }
-
 .adjust-btn {
     height: 50px;
     width: 100%;
@@ -299,7 +282,6 @@ a {
     box-shadow: inset 0px -5px 5px 0px #3f42eb;
     transition: background-color .4s;
 }
-
 .font-family {
     grid-row: 2/3;
     grid-column: 2 /span 4;
@@ -307,15 +289,12 @@ a {
     font-family:cursive;
     font-size: 1.5rem;
 }
-
 .adjust-btn:hover {
     background-color: rgb(155, 153, 153);
 }
-
 .color-label img {
     margin-top: 1px;
 }
-
 .color-input {
     opacity: 0;
 }
@@ -325,9 +304,9 @@ a {
 .share-btns button {
     font-size: 1.375rem;
     font-family:initial;
-    flex-basis: 48%;
-    height: 55px;
-    border-radius: 20px;
+    flex-basis: 45%;
+    height: 50px;
+    border-radius: 1rem;
     transition: background-color .2s;
     border: none;
 }
@@ -336,11 +315,11 @@ a {
     background-color: #1760a5;
 }
 .share-btn {
-    background-color: #1760a5;
-    margin-inline-end: 200px;
     color: white;
+    background-color: #1760a5;
+    -webkit-box-shadow: inset 0px -5px 5px 0px #13497c;
+    box-shadow: inset 0px -5px 5px 0px #13497c;
 }
-
 .download-link {
     display: flex;
     justify-content: center;
@@ -348,50 +327,39 @@ a {
     height: 100%;
     width: 100%;
 }
-
 .share-btn:hover {
     background-color: #258ff2;
 }
-
 .download-btn {
     background-color: #1760a5;
+    -webkit-box-shadow: inset 0px -5px 5px 0px #13497c;
+    box-shadow: inset 0px -5px 5px 0px #13497c;
 }
-
 .download-btn:hover {
     background-color: #258ff2;
 }
-
-
 /* Helpers */
-
 img {
     width: 100%;
 }
-
 input[type="file"] {
     display: none;
 }
-
 .flex {
     display: flex;
 }
-
 .column {
     flex-direction: column;
 }
-
 .row {
     flex-direction: row;
 }
-
 .space-between {
     justify-content: space-between;
 }
-
 .space-evenly {
     justify-content: space-evenly;
 }
-
 .hide {
     display: none;
 }
@@ -435,7 +403,6 @@ input[type="file"] {
         height: 45px;
     }
 }
-
 @media (max-width:1060px) {
     .canvas-container, .editor-container {
         width: 380px;
@@ -449,8 +416,11 @@ input[type="file"] {
         grid-row-gap: 5px;
         grid-column-gap: 20px;
     }
-}
+    .share-btns button {
+        height: 30px;
 
+    }
+}
 @media (max-width:840px) {
     .edit-page {
         flex-direction: column;
@@ -494,7 +464,6 @@ input[type="file"] {
         margin-inline-end: 20px;
     }
 }
-
 @media (max-width:540px) {
     .main-header {
         border-radius: 0px;
