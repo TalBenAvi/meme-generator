@@ -160,6 +160,27 @@ function moveText(diff) {
     onMoveText(diff);
     drawMeme(gCurrImgUrl, true)
 }
+function deleteText() {
+    if (!gIsUpdating) return;
+    textDelete();
+    drawMeme(gCurrImgUrl, false);
+    gIsUpdating = false;
+    document.querySelector('.add-btn').innerHTML = `<img src="icons/add.png">`;
+    document.querySelector('.add-text-input').value = '';
+}
+function switchFocus() {
+    if (!gMeme.textLines.length) return;
+    gMeme.lineIdx++;
+    gCurrHeight = null;
+    if (gMeme.lineIdx > (gMeme.textLines.length - 1)) {
+        gMeme.lineIdx = 0;
+    };
+    gIsUpdating = true;
+    document.querySelector('.add-btn').innerHTML = `<img src="icons/ok.png">`;
+    document.querySelector('.add-text-input').value = gMeme.textLines[gMeme.lineIdx].txt;
+    document.querySelector('.add-text-input').focus();
+    drawMeme(gCurrImgUrl, true)
+}
 function textDrop() {
     if (!gMeme.textLines.length) return;
     if (!gMeme.textLines[gMeme.lineIdx].isGrab) {

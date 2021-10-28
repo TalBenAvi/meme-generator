@@ -68,6 +68,10 @@ function textMove(diff) {
     gCurrHeight += (diff * 10);
     gMeme.textLines[gMeme.lineIdx].height = gCurrHeight;
 }
+function textDelete() {
+    gMeme.textLines.splice(gMeme.lineIdx, 1);
+    if (gMeme.lineIdx > 0) gMeme.lineIdx--;
+}
 function setTextGrab(isGrab) {
     gMeme.textLines[gMeme.lineIdx].isGrab = isGrab;
 }

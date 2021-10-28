@@ -53,9 +53,9 @@
             <div class="text-container editor-layout flex column">
                 <input type="text" class="add-text-input" data-trans="add-text-here" oninput="updateText()"placeholder="Enter Text Here">
                 <div class="tools-btn-container space-between flex">
-                    <button class="tools-btns change-sentence-btn"><img
+                    <button class="tools-btns change-sentence-btn" onclick="switchFocus()"><img
                             src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
-                    <button class="tools-btns trash-btn"><img src="icons/trash.png"></button>
+                    <button class="tools-btns trash-btn"><img src="icons/trash.png" onclick="deleteText()"></button>
                     <button class="tools-btns add-btn" onclick="onAddText()"><img src="icons/add.png"></button>
                     <button class="tools-btns up-btn" onclick="moveText(-1)"><img src="icons/up-arrow.png"></button>
                     <button class="tools-btns down-btn" onclick="moveText(1)"><img src="icons/down-arrow.png"></button>
