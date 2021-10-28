@@ -15,6 +15,8 @@ function onInit(){
     renderImgGallery(imgs);
     createCanvas();
     resizeCanvas();
+    loadMemes();
+    document.querySelector('.color-input').value = '#ffffff';
 }
 function showGallery() {
     document.querySelector('.gallery-page').classList.remove('hide');
@@ -210,6 +212,49 @@ function getEventPos(ev) {
     }
     return pos
 }
+function showMemes() {
+    document.querySelector('.edit-page').classList.add('hide');
+    document.querySelector('.gallery-page').classList.add('hide');
+    document.querySelector('.memes-page').classList.remove('hide');
+    document.querySelector('.bg-screen').classList.remove('show')
+    document.querySelector('.nav-bar').classList.remove('show')
+    document.querySelector('body').classList.add('overflow-hidden');
+    document.querySelector('#nav-icon1').classList.remove('open');
+    renderMemes();
+}
+function renderMemes() {
+    var strHTML = gSavedMemes.map((meme, idx) => {
+        return `<div class="meme" onclick="editMeme('${idx}')"><img src="${meme.url}" alt=""></div>`
+    }).join('');
+    if (!gSavedMemes.length) {
+        switch (gCurrLang) {
+            case 'en':
+                strHTML = 'No Saved Memes Yet';
+                break;
+            case 'he':
+                strHTML = 'אין ממים שמורים'
+        }
+    }
+    document.querySelector('.memes-container').innerHTML = strHTML;
+}
+function saveMeme() {
+    drawMeme(gCurrImgUrl, false)
+    setTimeout(() => {
+        var imgContent = gElCanvas.toDataURL('image/jpeg')
+        var currMeme = {
+            data: gMeme,
+            url: imgContent
+        }
+        gSavedMemes.push(currMeme);
+        saveMemes();
+    }, 0);
+    document.querySelector('.save-btn').style.backgroundColor = '#198754';
+    document.querySelector('.memes-link').style.backgroundColor = '#198754';
+    setTimeout(() => {
+        document.querySelector('.save-btn').style.backgroundColor = 'white';
+        document.querySelector('.memes-link').style.backgroundColor = '';
+    }, 500);
+}
 function onSetMemeImg(imgId) {
     var imgUrl = setMemeImg(imgId);
     gCurrImgUrl = imgUrl;
@@ -240,6 +285,16 @@ function showFocus() {
     gCtx.rect(startX, startY, width, height)
     gCtx.strokeStyle = 'black'
     gCtx.stroke()
+}
+function changeFontSize(diff) {
+    if (!gIsUpdating) return;
+    fontChange(diff);
+    drawMeme(gCurrImgUrl, true);
+}
+function textAlign(align) {
+    if (!gIsUpdating) return;
+    alignText(align);
+    drawMeme(gCurrImgUrl, true);
 }
 function onSetLang() {
     setLang();

@@ -23,7 +23,7 @@
 
         <nav class="nav-bar flex">
             <div data-trans="gallery" class="link" onclick="showGallery()"><a href="#">Gallery</a></div>
-            <div data-trans="memes" class="link" onclick="showMemes()"><a href="#"> Saved Memes</a></div>
+            <div data-trans="memes" class="link memes-link" onclick="showMemes()"><a href="#"> Saved Memes</a></div>
             <div data-trans="lang" class="link"><a href="#" onclick="onSetLang()">עברית</a></div>
         </nav>
     </header>
@@ -63,18 +63,18 @@
 
             </div>
             <div class="adjust-container editor-layout grid">
-                <button class="adjust-btn"><img src="icons/align-to-left.png"></button>
-                <button class="adjust-btn"><img src="icons/align-to-right.png"></button>
-                <button class="adjust-btn"><img src="icons/center-text-alignment.png"></button>
-                <button class="adjust-btn"><img src="icons/increase font - icon.png"></button>
-                <button class="adjust-btn"><img src="icons/decrease font - icon.png"></button>
+                <button class="adjust-btn"><img src="icons/align-to-left.png" onclick="textAlign('left')"></button>
+                <button class="adjust-btn"><img src="icons/align-to-right.png" onclick="textAlign('right')"></button>
+                <button class="adjust-btn"><img src="icons/center-text-alignment.png" onclick="textAlign('center')"></button>
+                <button class="adjust-btn"><img src="icons/increase font-icon.png" onclick="changeFontSize(1)"></button>
+                <button class="adjust-btn"><img src="icons/decrease font-icon.png" onclick="changeFontSize(-1)"></button>
                 <button class="adjust-btn"><img src="icons/text stroke.png"></button>
                 <select name="font-select" class="adjust-btn font-family">
                     <option>Times</option>
                     <option>Gill Sans</option>
                     <option>Courier New</option>
                 </select>
-                <button class="adjust-btn"><img src="icons/save.png"></button>
+                <button class="adjust-btn save-btn"><img src="icons/save.png" onclick="saveMeme()"></button>
                 <button class="adjust-btn"><label class="color-label"><img src="icons/paint-board-and-brush.png">
                         <input type="color" class="color-input"></label>
                 </button>

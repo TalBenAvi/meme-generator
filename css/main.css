@@ -17,6 +17,7 @@ body {
 }
 .overflow-hidden {
     overflow-y: hidden;
+
 }
 .bg-screen {
     position: fixed;
@@ -39,11 +40,11 @@ body {
     height: 14px;
 }
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(52deg, #30bbb4 43%, #dde110 64%);
+    background: linear-gradient(52deg, #ed2f2f 43%, #dde110 64%);
     border-radius: 15px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(13deg, #dde110 14%, #30bbb4 64%);
+    background: linear-gradient(13deg, #dde110 14%, #ed2f2f 64%);
 }
 ::-webkit-scrollbar-track {
     background: #22252c;
@@ -164,7 +165,7 @@ a {
     grid-column-gap: 30px;
     height: 91%;
     margin: auto;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
     padding-top: 15px;
 }
 .gallery img {
@@ -337,6 +338,21 @@ a {
 }
 .download-btn:hover {
     background-color: #258ff2;
+}
+/* MEMES */
+.img-gallery-container.memes {
+    padding: 1px;
+}
+.memes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
+    grid-column-gap: 15px;
+    grid-row-gap: 10px;
+    height: 100%;
+    overflow-y: scroll;
+}
+.meme img {
+    border-radius: 1em;
 }
 /* Helpers */
 img {

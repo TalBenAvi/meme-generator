@@ -72,10 +72,23 @@ function textDelete() {
     gMeme.textLines.splice(gMeme.lineIdx, 1);
     if (gMeme.lineIdx > 0) gMeme.lineIdx--;
 }
+function fontChange(diff) {
+    gMeme.textLines[gMeme.lineIdx].size += (diff * 2);
+}
+function alignText(align) {
+    gMeme.textLines[gMeme.lineIdx].align = align;
+}
 function setTextGrab(isGrab) {
     gMeme.textLines[gMeme.lineIdx].isGrab = isGrab;
 }
 function onMoveText(dx, dy) {
     gMeme.textLines[gMeme.lineIdx].posX += dx
     gMeme.textLines[gMeme.lineIdx].posY += dy
+}
+function saveMemes() {
+    saveToStorage('SavedMemes', gSavedMemes);
+}
+function loadMemes() {
+    gSavedMemes = loadFromStorage('SavedMemes');
+    if (!gSavedMemes) gSavedMemes = [];
 }
