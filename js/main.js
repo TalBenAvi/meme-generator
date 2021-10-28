@@ -145,7 +145,7 @@ function selectText(ev) {
     gStartPos = pos;
     gCurrHeight = null
     gIsUpdating = true;
-    document.querySelector('.add-btn').innerHTML = `<img src="icons/ok.png">`
+    document.querySelector('.add-btn').innerHTML = `<img src="icons/ok.png" onclick="">`
     document.querySelector('.add-text-input').value = gMeme.textLines[gMeme.lineIdx].txt;
     if (window.screen.width > 540) {
         document.querySelector('.add-text-input').focus();
@@ -159,7 +159,7 @@ function updateText() {
 }
 function moveText(diff) {
     if (!gIsUpdating) return;
-    onMoveText(diff);
+    textMove(diff);
     drawMeme(gCurrImgUrl, true)
 }
 function deleteText() {
