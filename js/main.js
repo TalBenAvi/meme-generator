@@ -7,6 +7,8 @@ var gCurrImgUrl;
 var gCurrHeight;
 var gCurrFont;
 var gStartPos;
+var gCurrPage = 1
+var gStickersInPage = 3
 const gTouchEvents = ['touchstart', 'touchmove', 'touchend']
 
 function onInit(){

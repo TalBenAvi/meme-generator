@@ -6,8 +6,12 @@ var gFilter = '';
 var gMeme = {
     imgId: 0,
     lineIdx: 0,
+    stickerIdx: 0,
+    // OutlineColor: 'black',
+    // fillColor: 'white',
     textLines: []
 }
+
 function loadImgs() {
     gImgs = loadFromStorage('ImgsDB');
     if (!gImgs) gImgs = [
