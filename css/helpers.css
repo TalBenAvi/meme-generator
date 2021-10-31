@@ -1,0 +1,30 @@
+img {
+    width: 100%;
+}
+input[type="file"] {
+    display: none;
+}
+.flex {
+    display: flex;
+}
+.column {
+    flex-direction: column;
+}
+.row {
+    flex-direction: row;
+}
+.space-between {
+    justify-content: space-between;
+}
+.space-evenly {
+    justify-content: space-evenly;
+}
+.hide {
+    display: none;
+}
+.grid {
+    display: grid;
+}
+.editor-layout{
+    width: 90%;
+}

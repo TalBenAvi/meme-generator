@@ -15,6 +15,8 @@ function onInit(){
     createCanvas();
     resizeCanvas();
     loadMemes();
+    loadStickers();
+    renderStickers(gStickers);
     addListeners();
     document.querySelector('.color-input').value = '#ffffff';
 }
@@ -39,6 +41,15 @@ function renderImgGallery(imgs) {
     }).join('');
 
     document.querySelector('.gallery').innerHTML = strHTML;
+}
+function renderStickers(stickers) {
+    var strHTML = stickers.map((sticker) => {
+        return `<div class="img-container">
+        <img src="${sticker.url}" onclick="onRenderSticker(${sticker.id})">
+        </div>`
+    }).join('');
+
+    document.querySelector('.stickers').innerHTML = strHTML;
 }
 function createCanvas() {
     gElCanvas = document.getElementById('edit-canvas');
@@ -427,4 +438,7 @@ function onMove(ev) {
         gStartPos = pos
         drawMeme(gCurrImgUrl, true);
     }
+}
+function onRenderSticker(stickerId){
+console.log(stickerId);
 }

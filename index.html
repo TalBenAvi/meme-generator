@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Meme Generetor</title>
 </head>
+
 <body onload="onInit()">
     <div class="bg-screen" onclick="toggleMenu(),toggleBtn()"></div>
     <header class="main-header flex space-between">
@@ -27,7 +29,8 @@
     <div class="gallery-page">
         <div class="gallery-nav-bar flex space-between">
             <div class="search-input-container flex space-between">
-                <input data-trans="search" type="text" class="search-input" placeholder="search" oninput="setFilter(this.value)">
+                <input data-trans="search" type="text" class="search-input" placeholder="search"
+                    oninput="setFilter(this.value)">
                 <button class="search-btn"><object data="icons/search-icon.png" class="search-icon"
                         fill="green"></object></button>
             </div>
@@ -66,6 +69,9 @@
                 </div>
 
             </div>
+            <div class="sticker-container">
+                        <div class="stickers"></div>
+            </div>
             <div class="adjust-container editor-layout grid">
                 <button class="adjust-btn"><img src="icons/align-to-left.png" onclick="textAlign('right')"></button>
                 <button class="adjust-btn"><img src="icons/align-to-right.png" onclick="textAlign('left')"></button>
@@ -93,7 +99,8 @@
                     <button class="share-container" data-trans="share"></button>
                 </form>
                 <button class="download-btn">
-                    <a href="#" download="my-img.jpg" data-trans="download" class="download-link" onclick="downloadImg(this)">Download</a>
+                    <a href="#" download="my-img.jpg" data-trans="download" class="download-link"
+                        onclick="downloadImg(this)">Download</a>
                 </button>
             </div>
         </div>
