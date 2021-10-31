@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Meme Generetor</title>
 </head>
-
 <body onload="onInit()">
     <div class="bg-screen" onclick="toggleMenu(),toggleBtn()"></div>
     <header class="main-header flex space-between">
@@ -21,16 +19,15 @@
             </div>
         </div>
         <nav class="nav-bar flex">
-            <div data-trans="gallery" class="link" onclick="showGallery()"><a>Gallery</a></div>
-            <div data-trans="memes" class="link memes-link" onclick="showMemes()"><a>Saved Memes</a></div>
-            <div data-trans="lang" class="link" onclick="onSetLang(this.value)">עברית</div>
+            <div data-trans="gallery" class="link" onclick="showGallery()"><a href="#">Gallery</a></div>
+            <div data-trans="memes" class="link memes-link" onclick="showMemes()"><a href="#"> Saved Memes</a></div>
+            <div data-trans="lang" class="link" onclick="onSetLang()"><a href="#">עברית</a></div>
         </nav>
     </header>
     <div class="gallery-page">
         <div class="gallery-nav-bar flex space-between">
             <div class="search-input-container flex space-between">
-                <input data-trans="search" type="text" class="search-input" placeholder="search"
-                    oninput="setFilter(this.value)">
+                <input data-trans="search" type="text" class="search-input" placeholder="search" oninput="setFilter(this.value)">
                 <button class="search-btn"><object data="icons/search-icon.png" class="search-icon"
                         fill="green"></object></button>
             </div>
@@ -67,6 +64,7 @@
                     <button class="tools-btns up-btn" onclick="moveText(-1)"><img src="icons/up-arrow.png"></button>
                     <button class="tools-btns down-btn" onclick="moveText(1)"><img src="icons/down-arrow.png"></button>
                 </div>
+
             </div>
             <div class="adjust-container editor-layout grid">
                 <button class="adjust-btn"><img src="icons/align-to-left.png" onclick="textAlign('right')"></button>
@@ -76,8 +74,7 @@
                 <button class="adjust-btn"><img src="icons/increase font-icon.png" onclick="changeFontSize(1)"></button>
                 <button class="adjust-btn"><img src="icons/decrease font-icon.png"
                         onclick="changeFontSize(-1)"></button>
-                <button class="adjust-btn"><label class="color-label"><img src="icons/text stroke.png">
-                        <input type="color" class="color-input"></button>
+                <button class="adjust-btn"><img src="icons/text stroke.png"></button>
                 <select name="font-select" class="adjust-btn font-family" onchange="changeFontFamily(this.value)">
                     <option>Verdana</option>
                     <option>Gill Sans</option>
@@ -88,30 +85,30 @@
                         <input type="color" class="color-input" oninput="changeColor(this.value)"></label>
                 </button>
                 <!-- <button class="adjust-btn"><img src="icons/help.png"></button> -->
-                <div class="share-btns editor-layout flex space-between">
-                    <form class="share-form flex space-evenly" onsubmit="uploadImg(this, event)">
-                        <input name="img" id="imgData" type="hidden" />
-                        <button class="share-btn" data-trans="share">Share</button>
-                        <button class="share-container" data-trans="share"></button>
-                    </form>
-                    <button class="download-btn">
-                        <a href="#" download="my-img.jpg" data-trans="download" class="download-link"
-                            onclick="downloadImg(this)">Download</a>
-                    </button>
-                </div>
+            </div>
+            <div class="share-btns editor-layout flex space-between">
+                <form class="share-form flex space-evenly" onsubmit="uploadImg(this, event)">
+                    <input name="img" id="imgData" type="hidden" />
+                    <button class="share-btn" data-trans="share">Share</button>
+                    <button class="share-container" data-trans="share"></button>
+                </form>
+                <button class="download-btn">
+                    <a href="#" download="my-img.jpg" data-trans="download" class="download-link" onclick="downloadImg(this)">Download</a>
+                </button>
             </div>
         </div>
-        <div class="memes-page hide">
-            <div class="gallery-container memes">
-                <div class="memes-container">
-                </div>
+    </div>
+    <div class="memes-page hide">
+        <div class="gallery-container memes">
+            <div class="memes-container">
             </div>
         </div>
-        <script src="js/i18n-service.js"></script>
-        <script src="js/storage-service.js"></script>
-        <script src="js/upload-service.js"></script>
-        <script src="js/meme-service.js"></script>
-        <script src="js/main.js"></script>
+    </div>
+    <script src="js/i18n-service.js"></script>
+    <script src="js/storage-service.js"></script>
+    <script src="js/upload-service.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

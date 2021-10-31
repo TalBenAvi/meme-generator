@@ -285,9 +285,6 @@ a {
 .down-btn:hover{
     background-color: #0c1be7;
 }
-.icons-gallery {
-    display: inline-flex;
-  }
 .adjust-container {
     background-color: #4e50e9;
     border-radius: 0.7em;
@@ -444,7 +441,7 @@ input[type="file"] {
 @media (max-width:1060px) {
     .canvas-container, .editor-container {
         width: 380px;
-        height: 400px;
+        height: 380px;
         border-radius: 2em;
     }
     .editor-container {
