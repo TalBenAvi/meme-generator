@@ -21,9 +21,9 @@
             </div>
         </div>
         <nav class="nav-bar flex">
-            <div data-trans="gallery" class="link" onclick="showGallery()"><a href="#">Gallery</a></div>
-            <div data-trans="memes" class="link memes-link" onclick="showMemes()"><a href="#"> Saved Memes</a></div>
-            <div data-trans="lang" class="link" onclick="onSetLang()"><a href="#">עברית</a></div>
+            <div data-trans="gallery" class="link" onclick="showGallery()"><a>Gallery</a></div>
+            <div data-trans="memes" class="link memes-link" onclick="showMemes()"><a>Saved Memes</a></div>
+            <select data-trans="lang" class="link" onclick="onSetLang(this.value)">עברית</select>
         </nav>
     </header>
     <div class="gallery-page">
@@ -88,30 +88,30 @@
                         <input type="color" class="color-input" oninput="changeColor(this.value)"></label>
                 </button>
                 <!-- <button class="adjust-btn"><img src="icons/help.png"></button> -->
-            <div class="share-btns editor-layout flex space-between">
-                <form class="share-form flex space-evenly" onsubmit="uploadImg(this, event)">
-                    <input name="img" id="imgData" type="hidden" />
-                    <button class="share-btn" data-trans="share">Share</button>
-                    <button class="share-container" data-trans="share"></button>
-                </form>
-                <button class="download-btn">
-                    <a href="#" download="my-img.jpg" data-trans="download" class="download-link"
-                        onclick="downloadImg(this)">Download</a>
-                </button>
+                <div class="share-btns editor-layout flex space-between">
+                    <form class="share-form flex space-evenly" onsubmit="uploadImg(this, event)">
+                        <input name="img" id="imgData" type="hidden" />
+                        <button class="share-btn" data-trans="share">Share</button>
+                        <button class="share-container" data-trans="share"></button>
+                    </form>
+                    <button class="download-btn">
+                        <a href="#" download="my-img.jpg" data-trans="download" class="download-link"
+                            onclick="downloadImg(this)">Download</a>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="memes-page hide">
-        <div class="gallery-container memes">
-            <div class="memes-container">
+        <div class="memes-page hide">
+            <div class="gallery-container memes">
+                <div class="memes-container">
+                </div>
             </div>
         </div>
-    </div>
-    <script src="js/i18n-service.js"></script>
-    <script src="js/storage-service.js"></script>
-    <script src="js/upload-service.js"></script>
-    <script src="js/meme-service.js"></script>
-    <script src="js/main.js"></script>
+        <script src="js/i18n-service.js"></script>
+        <script src="js/storage-service.js"></script>
+        <script src="js/upload-service.js"></script>
+        <script src="js/meme-service.js"></script>
+        <script src="js/main.js"></script>
 </body>
 
 </html>
