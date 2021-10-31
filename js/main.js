@@ -8,12 +8,7 @@ var gCurrSticker;
 var gCurrHeight;
 var gCurrFont;
 var gStartPos;
-// var gStickerPos={
-//     posX:0,
-//     posY:0
-// }
-const gTouchEvents = ['touchstart', 'touchmove', 'touchend']
-
+const gTouchEvents = ['touchstart', 'touchmove', 'touchend'];
 function onInit() {
     loadImgs();
     renderImgGallery(gImgs);
@@ -37,7 +32,6 @@ function showGallery() {
     gIsUpdating = false;
     renderImgGallery(gImgs);
 }
-
 function renderImgGallery(imgs) {
     var strHTML = imgs.map((img) => {
         return `<div class="img-container">
@@ -190,7 +184,6 @@ function selectText(ev) {
         return;
     }
     setTextGrab(true);
-
     gStartPos = pos;
     gCurrHeight = null
     gIsUpdating = true;
