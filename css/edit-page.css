@@ -87,10 +87,10 @@
     border-radius: 0.7em;
 }
 .stickers{
+    display: grid;
     grid-template-columns: repeat(3, 50px);
-    grid-column-gap: 20px;
-    display:flex;
-    margin-bottom: 10px;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
 }
 .stickers img:hover{
     cursor: pointer;
