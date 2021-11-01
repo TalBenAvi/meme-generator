@@ -7,7 +7,7 @@ var gMeme = {
     imgId: 0,
     lineIdx: 0,
     textLines: [],
-    stickers:[]     
+    // stickers:[]     
 }
 var gStickers
 function loadStickers() {

@@ -188,12 +188,14 @@ function selectText(ev) {
     gCurrHeight = null
     gIsUpdating = true;
     document.querySelector('.add-btn').innerHTML = `<img src="icons/ok.png">`
-    // if (typeof gMeme.textLines[gMeme.lineIdx] === 'object') {
-    //     document.querySelector('.add-text-input').value = '';
-    // }
-    // else {
+    if ( typeof gMeme.textLines[gMeme.lineIdx]  === 'IMG') {
+        drawSticker(gMeme.textLines[gMeme.lineIdx]);
+        document.querySelector('.add-text-input').value = '';
+
+    }
+    else {
         document.querySelector('.add-text-input').value = gMeme.textLines[gMeme.lineIdx].txt;
-    // }
+    }
     if (window.screen.width > 540) {
         document.querySelector('.add-text-input').focus();
     }
