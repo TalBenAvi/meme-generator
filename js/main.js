@@ -41,15 +41,15 @@ function renderImgGallery(imgs) {
 
     document.querySelector('.gallery').innerHTML = strHTML;
 }
-// function renderStickers(stickers) {
-//     var strHTML = stickers.map((sticker) => {
-//         return `<div class="img-container">
-//         <img src="${sticker.url}" onclick="onSetSticker(${sticker.id})">
-//         </div>`
-//     }).join('');
+function renderStickers(stickers) {
+    var strHTML = stickers.map((sticker) => {
+        return `<div class="img-container">
+        <img src="${sticker.url}" onclick="onSetSticker(${sticker.id})">
+        </div>`
+    }).join('');
 
-//     document.querySelector('.stickers').innerHTML = strHTML;
-// }
+    document.querySelector('.stickers').innerHTML = strHTML;
+}
 function createCanvas() {
     gElCanvas = document.getElementById('edit-canvas');
     gCtx = gElCanvas.getContext('2d');
@@ -188,14 +188,14 @@ function selectText(ev) {
     gCurrHeight = null
     gIsUpdating = true;
     document.querySelector('.add-btn').innerHTML = `<img src="icons/ok.png">`
-    // if (typeof gMeme.textLines[gMeme.lineIdx].txt === 'object') {
-    //     drawSticker(gMeme.textLines[gMeme.lineIdx]);
-    //     document.querySelector('.add-text-input').value = '';
+    if (typeof gMeme.textLines[gMeme.lineIdx].txt === 'object') {
+        drawSticker(gMeme.textLines[gMeme.lineIdx]);
+        document.querySelector('.add-text-input').value = '';
 
-    // }
-    // else {
+    }
+    else {
         document.querySelector('.add-text-input').value = gMeme.textLines[gMeme.lineIdx].txt;
-    // }
+    }
     if (window.screen.width > 540) {
         document.querySelector('.add-text-input').focus();
     }
@@ -483,18 +483,18 @@ function onMove(ev) {
         renderMeme(gCurrImgUrl, true);
     }
 }
-// function onSetSticker(stickerId) {
-//     var sticker = getSticker(stickerId);
-//     drawSticker(sticker);
-// }
-// function drawSticker(sticker) {
-//     let stickerImg = new Image();
-//     stickerImg.src = sticker.url;
-//     gCtx.drawImage(stickerImg, 100, 100, 150, 150);
-//     createLine(stickerImg, stickerImg.width, 100, 100);
-// }
-// function moveSticker(sticker) {
-//     let stickerImg = new Image();
-//     stickerImg.src = sticker.txt.src;
-//     gCtx.drawImage(stickerImg, sticker.posX, sticker.posY, 100, 100);
-// }
+function onSetSticker(stickerId) {
+    var sticker = getSticker(stickerId);
+    drawSticker(sticker);
+}
+function drawSticker(sticker) {
+    let stickerImg = new Image();
+    stickerImg.src = sticker.url;
+    gCtx.drawImage(stickerImg, 100, 100, 150, 150);
+    createLine(stickerImg, stickerImg.width, 100, 100);
+}
+function moveSticker(sticker) {
+    let stickerImg = new Image();
+    stickerImg.src = sticker.txt.src;
+    gCtx.drawImage(stickerImg, sticker.posX, sticker.posY, 100, 100);
+}

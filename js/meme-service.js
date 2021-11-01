@@ -65,11 +65,11 @@ function setMemeImg(imgId) {
     gMeme.imgId = img.id;
     return img.url;
 }
-// function getSticker(stickerId){
-//     var sticker = gStickers.find((sticker) => sticker.id === stickerId);
-//     gStickers.stickerId = sticker.id;
-//     return sticker;
-// }
+function getSticker(stickerId){
+    var sticker = gStickers.find((sticker) => sticker.id === stickerId);
+    gStickers.stickerId = sticker.id;
+    return sticker;
+}
 function getImg(imgUrl){
     var img = gImgs.find((img) => img.url === imgUrl);
     return img;
