@@ -41,15 +41,15 @@ function renderImgGallery(imgs) {
 
     document.querySelector('.gallery').innerHTML = strHTML;
 }
-function renderStickers(stickers) {
-    var strHTML = stickers.map((sticker) => {
-        return `<div class="img-container">
-        <img src="${sticker.url}" onclick="onSetSticker(${sticker.id})">
-        </div>`
-    }).join('');
+// function renderStickers(stickers) {
+//     var strHTML = stickers.map((sticker) => {
+//         return `<div class="img-container">
+//         <img src="${sticker.url}" onclick="onSetSticker(${sticker.id})">
+//         </div>`
+//     }).join('');
 
-    document.querySelector('.stickers').innerHTML = strHTML;
-}
+//     document.querySelector('.stickers').innerHTML = strHTML;
+// }
 function createCanvas() {
     gElCanvas = document.getElementById('edit-canvas');
     gCtx = gElCanvas.getContext('2d');
@@ -483,18 +483,18 @@ function onMove(ev) {
         renderMeme(gCurrImgUrl, true);
     }
 }
-function onSetSticker(stickerId) {
-    var sticker = getSticker(stickerId);
-    drawSticker(sticker);
-}
-function drawSticker(sticker) {
-    let stickerImg = new Image();
-    stickerImg.src = sticker.url;
-    gCtx.drawImage(stickerImg, 100, 100, 150, 150);
-    createLine(stickerImg, stickerImg.width, 100, 100);
-}
-function moveSticker(sticker) {
-    let stickerImg = new Image();
-    stickerImg.src = sticker.txt.src;
-    gCtx.drawImage(stickerImg, sticker.posX, sticker.posY, 100, 100);
-}
+// function onSetSticker(stickerId) {
+//     var sticker = getSticker(stickerId);
+//     drawSticker(sticker);
+// }
+// function drawSticker(sticker) {
+//     let stickerImg = new Image();
+//     stickerImg.src = sticker.url;
+//     gCtx.drawImage(stickerImg, 100, 100, 150, 150);
+//     createLine(stickerImg, stickerImg.width, 100, 100);
+// }
+// function moveSticker(sticker) {
+//     let stickerImg = new Image();
+//     stickerImg.src = sticker.txt.src;
+//     gCtx.drawImage(stickerImg, sticker.posX, sticker.posY, 100, 100);
+// }

@@ -9,18 +9,18 @@ var gMeme = {
     textLines: [],
     // stickers:[]     
 }
-var gStickers
-function loadStickers() {
-   gStickers = [
-        { id: 1, url: 'icons/sticker01.png'},
-        { id: 2, url: 'icons/sticker02.png'},
-        { id: 3, url: 'icons/sticker03.png'},
-        { id: 4, url: 'icons/sticker04.png'},
-        { id: 5, url: 'icons/sticker05.png'},
-        { id: 6, url: 'icons/sticker06.png'}
-    ]
-    return gStickers;
-}
+// var gStickers
+// function loadStickers() {
+//    gStickers = [
+//         { id: 1, url: 'icons/sticker01.png'},
+//         { id: 2, url: 'icons/sticker02.png'},
+//         { id: 3, url: 'icons/sticker03.png'},
+//         { id: 4, url: 'icons/sticker04.png'},
+//         { id: 5, url: 'icons/sticker05.png'},
+//         { id: 6, url: 'icons/sticker06.png'}
+//     ]
+//     return gStickers;
+// }
 function loadImgs() {
     gImgs = loadFromStorage('ImgsDB');
     if (!gImgs) gImgs = [
@@ -65,11 +65,11 @@ function setMemeImg(imgId) {
     gMeme.imgId = img.id;
     return img.url;
 }
-function getSticker(stickerId){
-    var sticker = gStickers.find((sticker) => sticker.id === stickerId);
-    gStickers.stickerId = sticker.id;
-    return sticker;
-}
+// function getSticker(stickerId){
+//     var sticker = gStickers.find((sticker) => sticker.id === stickerId);
+//     gStickers.stickerId = sticker.id;
+//     return sticker;
+// }
 function getImg(imgUrl){
     var img = gImgs.find((img) => img.url === imgUrl);
     return img;
